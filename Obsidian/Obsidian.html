@@ -1,0 +1,588 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Obsidian</title><style>:root {
+	--bg: #f7f7f4;
+	--surface: #ffffff;
+	--surface-soft: #eeeeea;
+	--surface-muted: #e4e4df;
+	--text: #151515;
+	--muted: #6f6f69;
+	--faint: #9a9a92;
+	--border: #d9d9d2;
+	--border-strong: #b8b8af;
+	--accent: #2f2f2b;
+	--accent-strong: #000000;
+	--warning: #6f6548;
+	--danger: #6d4b4b;
+	--success: #4f5f4f;
+	--code-bg: #191919;
+	--code-text: #f4f4ef;
+
+	--font-body: "CMU Serif Exact", "Latin Modern Roman", "Latin Modern Roman 10", "CMU Serif", "Computer Modern Serif", "New Computer Modern", Georgia, "Times New Roman", serif;
+	--font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+	--font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+
+	--radius: 7px;
+	--max-width: none;
+	--shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 18px 42px rgba(0, 0, 0, 0.045);
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../assets/fonts/cmunrm.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../assets/fonts/cmunbx.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: italic;
+	font-weight: 400;
+	src: url("../assets/fonts/cmunti.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: italic;
+	font-weight: 700;
+	src: url("../assets/fonts/cmunbi.ttf") format("truetype");
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: 18px;
+	text-rendering: optimizeLegibility;
+}
+
+main,
+.page {
+	margin: 0 auto;
+	max-width: var(--max-width);
+	padding: 42px 42px 56px;
+	width: 100%;
+}
+
+.page-wide {
+	max-width: none;
+}
+
+.page-narrow {
+	max-width: 760px;
+}
+
+header,
+.hero {
+	border-bottom: 1px solid var(--border);
+	margin-bottom: 24px;
+	padding-bottom: 22px;
+}
+
+.eyebrow {
+	color: var(--muted);
+	font-family: var(--font-ui);
+	font-size: 0.72rem;
+	font-weight: 650;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-body);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.08;
+	margin: 0;
+}
+
+h1 {
+	font-size: clamp(2.35rem, 5vw, 4.6rem);
+	margin-top: 12px;
+}
+
+h2 {
+	font-size: 1.65rem;
+	margin-bottom: 12px;
+}
+
+h3 {
+	font-size: 1.15rem;
+	margin-bottom: 8px;
+}
+
+p {
+	line-height: 1.56;
+	margin: 0 0 10px;
+}
+
+a {
+	color: var(--accent-strong);
+	text-decoration-color: var(--border-strong);
+	text-underline-offset: 3px;
+}
+
+code {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	font-family: var(--font-mono);
+	font-size: 0.84em;
+	padding: 0.1em 0.32em;
+}
+
+pre {
+	background: var(--code-bg);
+	border-radius: var(--radius);
+	color: var(--code-text);
+	font-size: 0.9rem;
+	overflow: auto;
+	padding: 18px;
+}
+
+pre code {
+	background: transparent;
+	border: 0;
+	color: inherit;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 0.98rem;
+	width: 100%;
+}
+
+th,
+td {
+	border-bottom: 1px solid var(--border);
+	padding: 11px 10px;
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	color: var(--muted);
+	font-family: var(--font-ui);
+	font-size: 0.73rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.lead {
+	color: var(--muted);
+	font-size: 1.22rem;
+	line-height: 1.48;
+	max-width: 860px;
+}
+
+.serif {
+	font-family: var(--font-body);
+}
+
+.mono {
+	font-family: var(--font-mono);
+}
+
+.section {
+	margin-top: 20px;
+}
+
+.panel {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: 20px;
+}
+
+.panel-soft {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 18px;
+}
+
+.grid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-2 {
+	display: grid;
+	gap: 18px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 16px;
+}
+
+.callout {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-left: 3px solid var(--accent);
+	border-radius: var(--radius);
+	padding: 14px 16px;
+}
+
+.callout.warning {
+	border-left-color: var(--warning);
+}
+
+.callout.danger {
+	border-left-color: var(--danger);
+}
+
+.callout.success {
+	border-left-color: var(--success);
+}
+
+.button {
+	align-items: center;
+	background: var(--text);
+	border: 1px solid var(--text);
+	border-radius: 6px;
+	color: var(--surface);
+	cursor: pointer;
+	display: inline-flex;
+	font-family: var(--font-ui);
+	font-size: 0.92rem;
+	font-weight: 600;
+	gap: 8px;
+	justify-content: center;
+	min-height: 40px;
+	padding: 9px 14px;
+	text-decoration: none;
+}
+
+.button:hover {
+	background: var(--accent-strong);
+}
+
+.toolbar {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 18px 0;
+}
+
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 18px 0;
+}
+
+.tab {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	color: var(--muted);
+	cursor: pointer;
+	font-family: var(--font-ui);
+	font-size: 0.9rem;
+	padding: 8px 12px;
+}
+
+.tab.active {
+	background: var(--text);
+	border-color: var(--text);
+	color: var(--surface);
+}
+
+.timeline {
+	border-left: 1px solid var(--border-strong);
+	display: grid;
+	gap: 14px;
+	margin-left: 8px;
+	padding-left: 24px;
+}
+
+.timeline-item {
+	position: relative;
+}
+
+.timeline-item::before {
+	background: var(--bg);
+	border: 1px solid var(--accent);
+	border-radius: 50%;
+	content: "";
+	height: 10px;
+	left: -30px;
+	position: absolute;
+	top: 5px;
+	width: 10px;
+}
+
+.figure {
+	margin: 14px 0;
+	max-width: 980px;
+}
+
+.figure img {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.figure figcaption {
+	color: var(--muted);
+	font-size: 0.92rem;
+	line-height: 1.45;
+	margin-top: 8px;
+}
+
+.sources {
+	font-size: 0.96rem;
+	margin: 0;
+	max-width: 980px;
+	padding-left: 1.2em;
+}
+
+.sources li {
+	line-height: 1.5;
+	margin-bottom: 8px;
+}
+
+.badge {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	color: var(--muted);
+	display: inline-flex;
+	font-family: var(--font-ui);
+	font-size: 0.74rem;
+	font-weight: 650;
+	margin-bottom: 10px;
+	padding: 4px 9px;
+}
+
+.split {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+}
+
+@media (max-width: 820px) {
+	.grid-2,
+	.grid-3,
+	.split {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 680px) {
+	body {
+		font-size: 17px;
+	}
+
+	main,
+	.page {
+		padding: 34px 18px 52px;
+	}
+
+	h1 {
+		font-size: 2.45rem;
+	}
+}
+
+.site-shell { display: grid; gap: 28px; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); }
+.site-nav { border-right: 1px solid var(--border); font-family: var(--font-ui); font-size: 0.92rem; padding-right: 22px; }
+.site-nav h2 { font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 12px; text-transform: uppercase; }
+.site-nav a { display: block; line-height: 1.35; margin: 0 0 8px; text-decoration: none; }
+.site-nav a:hover { text-decoration: underline; }
+.content { max-width: none; }
+.content h1, .content h2, .content h3 { margin: 28px 0 10px; }
+.content h1:first-child { margin-top: 0; }
+.wikilink { background: var(--surface-soft); border: 1px solid var(--border); border-radius: 5px; padding: 0.02em 0.28em; text-decoration: none; }
+.media-embed { margin: 16px 0; max-width: 980px; }
+.media-embed img, .media-embed video { border: 1px solid var(--border); display: block; height: auto; max-width: 100%; }
+blockquote { background: var(--surface-soft); border-left: 3px solid var(--accent); margin: 14px 0; padding: 12px 14px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
+
+.site-nav details {
+	margin: 10px 0 0;
+}
+.site-nav summary {
+	color: var(--muted);
+	cursor: pointer;
+	font-family: var(--font-ui);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	list-style: none;
+	margin: 14px 0 7px;
+	text-transform: uppercase;
+}
+.site-nav summary::-webkit-details-marker {
+	display: none;
+}
+.site-nav summary::before {
+	content: "+";
+	display: inline-block;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	margin-right: 7px;
+	width: 10px;
+}
+.site-nav details[open] summary::before {
+	content: "-";
+}
+.site-nav .nav-child {
+	border-left: 1px solid var(--border);
+	margin-left: 5px;
+	padding-left: 12px;
+}
+
+
+.content h1 {
+	font-size: clamp(2rem, 3.4vw, 3.35rem);
+	margin: 24px 0 12px;
+}
+.content h2 {
+	font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+	margin: 22px 0 10px;
+}
+.content h3 {
+	font-size: 1.22rem;
+	margin: 18px 0 8px;
+}
+.content h4 {
+	font-size: 1.05rem;
+	margin: 16px 0 8px;
+}
+.content p {
+	line-height: 1.58;
+	margin-bottom: 12px;
+	max-width: 980px;
+}
+.content ul,
+.content ol {
+	line-height: 1.55;
+	margin: 8px 0 16px;
+	max-width: 980px;
+}
+.content li {
+	margin-bottom: 5px;
+}
+.hero h1 {
+	font-size: clamp(2.4rem, 4.6vw, 4.8rem);
+}
+
+
+.content a[href^="http"] {
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+.content p br {
+	content: "";
+	display: block;
+	margin-top: 6px;
+}
+
+
+.hero h1 {
+	font-size: clamp(2rem, 3.2vw, 3.6rem);
+}
+.content h1 {
+	font-size: clamp(1.65rem, 2.55vw, 2.65rem);
+}
+.content h2 {
+	font-size: clamp(1.28rem, 1.8vw, 1.75rem);
+}
+
+
+.content p:has(br) {
+	line-height: 1.72;
+}
+.content p:has(br) a[href^="http"] {
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: top;
+}
+
+@media (max-width: 900px) { .site-shell { display: block; } .site-nav { border-right: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; padding-bottom: 18px; padding-right: 0; } }
+</style></head><body><main class="page page-wide"><header class="hero"><h1>Obsidian</h1></header><div class="site-shell"><nav class="site-nav"><h2>Inhalte</h2>
+<a class="nav-link" href="../index.html">Startseite</a>
+<details class="nav-folder" open><summary>Licht</summary>
+<a class="nav-link nav-child" href="../Licht/Buchempfehlungen.html">Buchempfehlungen</a>
+<a class="nav-link nav-child" href="../Licht/Nostera.html">Nostera</a>
+</details>
+<details class="nav-folder" open><summary>Obsidian</summary>
+<a class="nav-link nav-child" href="Meine Plugins.html">Meine Plugins</a>
+<a class="nav-link nav-child" href="Obsidian.html">Obsidian</a>
+</details>
+<details class="nav-folder" open><summary>Trading</summary>
+<a class="nav-link nav-child" href="../Trading/Trading.html">Trading</a>
+<a class="nav-link nav-child" href="../Trading/Tradingview Indikatoren.html">Tradingview Indikatoren</a>
+</details>
+<details class="nav-folder" open><summary>Youtube Quellen</summary>
+<a class="nav-link nav-child" href="../Youtube Quellen/Der Mann, der das eine Millionen Dollar Problem löste.html">Der Mann, der das eine Millionen Dollar Problem löste</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Die Macht des Luziden Träumens.html">Die Macht des Luziden Träumens</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Die verschiedenen Gebiete der Mathematik.html">Die verschiedenen Gebiete der Mathematik</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Meine Meinung zum Remarkable Paper Pro.html">Meine Meinung zum Remarkable Paper Pro</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Was macht Lesen mit uns.html">Was macht Lesen mit uns</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wer war Ramanujan.html">Wer war Ramanujan</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wie dachte Richard Feynman.html">Wie dachte Richard Feynman</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
+</details>
+</nav><article class="content"><h1 id="obsidian">Obsidian</h1>
+<p><a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a> ist meiner Meinung nach eines der stärksten Tools, die es heutzutage gibt. Ich kann mit diesem Toll so viele Workflows vereinen und optimieren, die ich bis vor kurzem noch über viele verschiedenen Tools verteilt hatte.</p>
+<h3 id="was-ist-obsidian">Was ist Obsidian?</h3>
+<p>Obsidian kannst du dir vorstellen wie eine bessere Darstellung deines Dateienverzeichnis. Es ist spezialisiert darauf <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener noreferrer">Markdown</a> Dateien zu rendern. Hierbei handelt es sich um einfache, strukturierte Textdateien, die so gut wie jedes Code oder Textprogramm öffnen kann. Man kann mit Obsidian also direkt in diese Dateien reinschreiben. Ich dachte mir am Anfang: &quot;Na gut, das kann ich aber auch mit Notion oder Word machen&quot;. Der entscheidende Unterschied ist folgender: Die allermeisten Notizprogramme nutzen entweder proprietäre Dateiformate (wie docx bei Word oder .one bei OneNote) oder speichern deine Notizen in einer Cloud (wie bei Notion). Das hat natürlich auch alles seine Vorteile, aber mir ist eine Sache bei meinen Notizen besonders wichtig: Die Notizen sollen NUR mir gehören. Ich möchte also nicht, das sie in der Datenbank einer Firma liegen oder das ich sie nur mit dem ganz bestimmten Notizprogramm öffnen kann. Ich möchte Unabhängigkeit und Souveränität. Das ist nun der entscheidende Vorteil von Obsidian. Die Dateien werden direkt auf deinem Gerät im lokalen Dateienverzeichnis abgespeichert. Du öffnest dabei einen sogenannten &quot;<em>Vault</em>&quot;, wobei es sich prinzipiell nur um einen Ordner handelt. Innerhalb dieses Ordners speichert man dann seine Markdown (.md) Dateien und noch weitere Unterordner ab. Der Punkt ist nun, dass deine Dateien nur dir gehören. Wenn irgendwann man etwas mit Obsidian passiert, dann sind deine Dateien (und damit deine Notizen, Gedanken und Erkenntnisse) nicht verschwunden... Du könntest sie mit jedem x-beliebigen Text- oder Code-Editor öffnen. Obsidian stellt an sich also nur eine bessere Darstellung für Markdown Dateien bereit. Weiteres findest du auch in meinem <a href="https://youtu.be/Q2m9lJuMkYg?si=QeibNxMHL1U5DYhq" target="_blank" rel="noopener noreferrer">Youtube Video</a>.</p>
+
+
+<h3 id="was-kann-obsidian-noch">Was kann Obsidian noch?</h3>
+<p><strong><em>Obsidian ist meiner Meinung nach noch viel mehr als ein reiner Markdown Editor</em></strong>:</p>
+<p><strong>Bauen eigener Plugins</strong> Du kannst dir in Obsidian sog. Plugins installieren, wobei es sich um Erweiterungen handelt, die das Erlebnis verbessern oder verändern sollen. Das coole bei diesen Erweiterungen ist es, das man sich Tools wie Notion zu nahezu 100% in Obsidian nachbauen lassen (zumindest was das Nutzererlebnis betrifft). Man ist hiermit sehr sehr flexibel und kann sich somit ein Tool bauen, in dem man nicht davon abhängig ist, was die Entwickler von diesem Tool alles hinzugefügt haben. Die einzige Grenze ist hierbei an sich unsere Vorstellungskraft.</p>
+<p>Das allerbeste ist meiner Meinung nach auch, das man im AI Zeitalter sogar gar nicht mehr auf die sogenannten Community Plugins angewiesen ist (hierbei handelt es sich um Plugins, die von der Obsidian Community gebaut wurden, getestet wurden und welche man sich direkt in Obsidian herunterladen könnte). Man kann mit AI (und ohne Coding Erfahrung!!) nahezu alles bauen, was einem in den Sinn kommt. Ein paar Beispiele von mir selbst:</p>
+<ul>
+<li>Ich habe mir den Kalendar, den ich zuvor in Google und Notion genutzt habe nachgebaut und alle Funktionen, die mir in diesem Anwendungen noch gefehlt haben, hinzufügen können.</li>
+<li>Ich habe mein ToDo Listen und Task System, welches zuvor nur mit Notion Datenbanken funktioniert hat, nachbauen können und noch weitere Funktionen hinzugefügt, die ich bei Notion nicht hinzufügen konnte </li>
+<li>Ich habe mir eine auf mich personalisierte Home Page gebaut</li>
+<li>Ein Tool mit dem man PDFs direkt in Obsidian beschreiben kann </li>
+<li>...</li>
+</ul>
+<p>Genaueres zu diesem Thema findest du auch in meinem <a href="https://youtu.be/ZMPI66CRn0Q?si=frK1-iCu6XozLNeK" target="_blank" rel="noopener noreferrer">Youtube Video</a></p>
+<p><strong>Nutzen mit AI</strong> Im April 2026 hat <a href="https://x.com/karpathy" target="_blank" rel="noopener noreferrer">Andrej Karpathy</a> (einer der Pioniere was AI betrifft) einen Tweet über Obsidian als LLM Knowledge Base gemacht (hier verlinkt: <a href="https://x.com/karpathy/status/2039805659525644595" target="_blank" rel="noopener noreferrer">LLM Knowledge Base</a>). Obsidian ist in Verbindung mit AI so mächtig, da das Markdown Dateiformat das Dateiformat ist, mit denen AI&#x27;s am besten arbeiten können. AI&#x27;s sollten nicht mit PDFs oder docx Dokumenten arbeiten. Diese müssen sie jedes mal erst konvertieren, was zu Leistungseinbußung führt. In Obsidian hat man zudem die Möglichkeit über sogenannte <span class="wikilink">Backlinks</span> Verbindungen zwischen Notizen zu erschaffen. Dadurch entsteht eine Struktur, wie man sie von Wikipedia kennt. Wenn man einer AI via Claude Code, Antigravity oder Codex Zugriff auf seinen Vault gibt, dann kann diese direkt dort arbeiten bzw. die Notizen einsehen. Wenn man dann noch Backlinks gesetzt hat, dann führt das dazu, dass sich die AI in den Notizen sehr sehr gut zurechtfinden kann und somit sehr effizient in deinem &quot;zweiten Gehirn&quot; arbeiten kann. Das wird umso mächtiger, umso besser die AIs werden, weshalb es meiner Meinung nach einfach nur Sinn macht seine Notizen und Gedanken in Markdown Dateien festzuhalten. Achte hierbei darauf, das du keine super privaten Dinge dort reinschreibst (vorallem solange du nicht mit einer lokalen KI arbeitest). Genaueres zu diesem Thema findest du auch in meinem <a href="https://youtu.be/DVcGhidmejw?si=CB89FmJl5CBPnfkD" target="_blank" rel="noopener noreferrer">Youtube Video</a>.</p>
+
+
+<p><strong>Die Zettelkastenmethode</strong> Obsidian eignete sich auch bereits vor der AI sehr gut zum Notizen machen, da es die <span class="wikilink">Backlinks</span> integriert hat (siehe oben). Mithilfe dieser Backlinks lässt sich das <a href="https://de.wikipedia.org/wiki/Zettelkasten" target="_blank" rel="noopener noreferrer">Zettelkastensystem</a> äußerst effizient in die Realität umsetzen. Wenn du nicht weißt was damit gemeint ist, dann schau gerne auf meinem <a href="https://youtu.be/QvSiW1Jq3rA?si=0tgJq-d6Q3BbIB63" target="_blank" rel="noopener noreferrer">Youtube Video</a> vorbei. Es gibt auch noch viele weitere Inhalte im Internet zu diesem Thema.</p>
+
+</article></div></main></body></html>

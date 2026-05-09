@@ -1,0 +1,66 @@
+[
+  {
+    "source": "Startseite.md",
+    "html": "index.html"
+  },
+  {
+    "source": "Licht/Buchempfehlungen.md",
+    "html": "Licht/Buchempfehlungen.html"
+  },
+  {
+    "source": "Licht/Nostera.md",
+    "html": "Licht/Nostera.html"
+  },
+  {
+    "source": "Obsidian/Meine Plugins.md",
+    "html": "Obsidian/Meine Plugins.html"
+  },
+  {
+    "source": "Obsidian/Obsidian.md",
+    "html": "Obsidian/Obsidian.html"
+  },
+  {
+    "source": "Trading/Trading.md",
+    "html": "Trading/Trading.html"
+  },
+  {
+    "source": "Trading/Tradingview Indikatoren.md",
+    "html": "Trading/Tradingview Indikatoren.html"
+  },
+  {
+    "source": "Youtube Quellen/Der Mann, der das eine Millionen Dollar Problem löste.md",
+    "html": "Youtube Quellen/Der Mann, der das eine Millionen Dollar Problem löste.html"
+  },
+  {
+    "source": "Youtube Quellen/Die Macht des Luziden Träumens.md",
+    "html": "Youtube Quellen/Die Macht des Luziden Träumens.html"
+  },
+  {
+    "source": "Youtube Quellen/Die verschiedenen Gebiete der Mathematik.md",
+    "html": "Youtube Quellen/Die verschiedenen Gebiete der Mathematik.html"
+  },
+  {
+    "source": "Youtube Quellen/Meine Meinung zum Remarkable Paper Pro.md",
+    "html": "Youtube Quellen/Meine Meinung zum Remarkable Paper Pro.html"
+  },
+  {
+    "source": "Youtube Quellen/Was macht Lesen mit uns.md",
+    "html": "Youtube Quellen/Was macht Lesen mit uns.html"
+  },
+  {
+    "source": "Youtube Quellen/Wer war Ramanujan.md",
+    "html": "Youtube Quellen/Wer war Ramanujan.html"
+  },
+  {
+    "source": "Youtube Quellen/Wie dachte Richard Feynman.md",
+    "html": "Youtube Quellen/Wie dachte Richard Feynman.html"
+  },
+  {
+    "source": "Youtube Quellen/Wie denkt Terence Tao.md",
+    "html": "Youtube Quellen/Wie denkt Terence Tao.html"
+  },
+  {
+    "source": "Youtube Quellen/Wie können wir Fokus erreichen.md",
+    "html": "Youtube Quellen/Wie können wir Fokus erreichen.html"
+  }
+]
