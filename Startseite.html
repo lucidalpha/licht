@@ -607,6 +607,34 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 	}
 }
 
+.home-intro {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+	max-width: 980px;
+}
+.home-intro-copy {
+	min-width: 0;
+}
+.home-sun {
+	align-self: start;
+	border: 0;
+	height: auto;
+	justify-self: end;
+	margin-top: -18px;
+	max-width: 100%;
+	width: 260px;
+}
+@media (max-width: 760px) {
+	.home-intro {
+		grid-template-columns: 1fr;
+	}
+	.home-sun {
+		justify-self: center;
+		margin: 8px auto 0;
+		width: min(210px, 72vw);
+	}
+}
 .social-intro {
 	max-width: 760px;
 }
@@ -703,8 +731,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
 <a class="nav-link nav-child" href="Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
-</div></details></nav><article class="content"><h1 id="ber-mich">Über mich</h1>
-<p>Hallo, ich bin Anton, 18 Jahre alt, und interessiert in vielen Bereichen des Lebens. Primär geht es mir darum Klarheit und volle Leistungsfähigkeit zu erreichen. Auf dieser Seite findest du nützliche Inhalte, wobei ich denke das sie dir helfen könnten.</p>
+</div></details></nav><article class="content"><div class="home-intro"><div class="home-intro-copy"><h1 id="ber-mich">Über mich</h1>
+<p>Hallo, ich bin Anton, 18 Jahre alt, und interessiert in vielen Bereichen des Lebens. Primär geht es mir darum Klarheit und volle Leistungsfähigkeit zu erreichen. Auf dieser Seite findest du nützliche Inhalte, wobei ich denke das sie dir helfen könnten.</p></div><img class="home-sun" src="assets/media/licht-sonne.png" alt="Gelb gezeichnete Sonne"></div>
 <h1 id="inhalte">Inhalte</h1>
 <p>Gehe zur Seite <a class="wikilink" href="Trading/Trading.html">Trading</a>, um Inhalte zu finden die ich zum Thema Trading veröffentliche. Dort findest du Indikatoren, Quellen und Erkenntnisse.</p>
 <p>Auf der Seite <a class="wikilink" href="Obsidian/Obsidian.html">Obsidian</a> findest du Inhalte über die Anwendung <a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a>, über die auch diese Website hier entstanden ist. Warum ich diese Anwendung als sehr mächtig erachte, findest du dort.</p>
