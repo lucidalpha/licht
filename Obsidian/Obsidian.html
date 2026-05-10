@@ -536,8 +536,69 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 	vertical-align: top;
 }
 
-@media (max-width: 900px) { .site-shell { display: block; } .site-nav { border-right: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; padding-bottom: 18px; padding-right: 0; } }
-</style></head><body><main class="page page-wide"><header class="hero"><h1>Obsidian</h1></header><div class="site-shell"><nav class="site-nav"><h2>Inhalte</h2>
+.mobile-nav {
+	display: block;
+}
+.mobile-nav > summary {
+	display: none;
+}
+.site-nav-body {
+	display: block;
+}
+
+@media (max-width: 900px) {
+	.site-shell {
+		display: flex;
+		flex-direction: column;
+	}
+	.site-nav {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		margin: 0 0 24px;
+		order: 1;
+		padding: 0;
+	}
+	.content {
+		order: 2;
+	}
+	.mobile-nav > summary {
+		align-items: center;
+		color: var(--text);
+		display: flex;
+		font-family: var(--font-ui);
+		font-size: 0.86rem;
+		font-weight: 700;
+		justify-content: space-between;
+		letter-spacing: 0.04em;
+		list-style: none;
+		margin: 0;
+		padding: 12px 14px;
+		text-transform: uppercase;
+	}
+	.mobile-nav > summary::-webkit-details-marker {
+		display: none;
+	}
+	.mobile-nav > summary::after {
+		content: "+";
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		line-height: 1;
+	}
+	.mobile-nav[open] > summary::after {
+		content: "-";
+	}
+	.site-nav-body {
+		border-top: 1px solid var(--border);
+		padding: 12px 14px 14px;
+	}
+}
+
+@media (min-width: 901px) {
+	.mobile-nav:not([open]) > .site-nav-body {
+		display: block !important;
+	}
+}
+</style></head><body><main class="page page-wide"><header class="hero"><h1>Obsidian</h1></header><div class="site-shell"><nav class="site-nav"><details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">
 <a class="nav-link" href="../index.html">Startseite</a>
 <details class="nav-folder" open><summary>Licht</summary>
 <a class="nav-link nav-child" href="../Licht/Buchempfehlungen.html">Buchempfehlungen</a>
@@ -562,7 +623,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
-</nav><article class="content"><h1 id="obsidian">Obsidian</h1>
+</div></details></nav><article class="content"><h1 id="obsidian">Obsidian</h1>
 <p><a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a> ist meiner Meinung nach eines der stärksten Tools, die es heutzutage gibt. Ich kann mit diesem Toll so viele Workflows vereinen und optimieren, die ich bis vor kurzem noch über viele verschiedenen Tools verteilt hatte.</p>
 <h3 id="was-ist-obsidian">Was ist Obsidian?</h3>
 <p>Obsidian kannst du dir vorstellen wie eine bessere Darstellung deines Dateienverzeichnis. Es ist spezialisiert darauf <a href="https://de.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener noreferrer">Markdown</a> Dateien zu rendern. Hierbei handelt es sich um einfache, strukturierte Textdateien, die so gut wie jedes Code oder Textprogramm öffnen kann. Man kann mit Obsidian also direkt in diese Dateien reinschreiben. Ich dachte mir am Anfang: &quot;Na gut, das kann ich aber auch mit Notion oder Word machen&quot;. Der entscheidende Unterschied ist folgender: Die allermeisten Notizprogramme nutzen entweder proprietäre Dateiformate (wie docx bei Word oder .one bei OneNote) oder speichern deine Notizen in einer Cloud (wie bei Notion). Das hat natürlich auch alles seine Vorteile, aber mir ist eine Sache bei meinen Notizen besonders wichtig: Die Notizen sollen NUR mir gehören. Ich möchte also nicht, das sie in der Datenbank einer Firma liegen oder das ich sie nur mit dem ganz bestimmten Notizprogramm öffnen kann. Ich möchte Unabhängigkeit und Souveränität. Das ist nun der entscheidende Vorteil von Obsidian. Die Dateien werden direkt auf deinem Gerät im lokalen Dateienverzeichnis abgespeichert. Du öffnest dabei einen sogenannten &quot;<em>Vault</em>&quot;, wobei es sich prinzipiell nur um einen Ordner handelt. Innerhalb dieses Ordners speichert man dann seine Markdown (.md) Dateien und noch weitere Unterordner ab. Der Punkt ist nun, dass deine Dateien nur dir gehören. Wenn irgendwann man etwas mit Obsidian passiert, dann sind deine Dateien (und damit deine Notizen, Gedanken und Erkenntnisse) nicht verschwunden... Du könntest sie mit jedem x-beliebigen Text- oder Code-Editor öffnen. Obsidian stellt an sich also nur eine bessere Darstellung für Markdown Dateien bereit. Weiteres findest du auch in meinem <a href="https://youtu.be/Q2m9lJuMkYg?si=QeibNxMHL1U5DYhq" target="_blank" rel="noopener noreferrer">Youtube Video</a>.</p>
@@ -585,4 +646,4 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 
 <p><strong>Die Zettelkastenmethode</strong> Obsidian eignete sich auch bereits vor der AI sehr gut zum Notizen machen, da es die <span class="wikilink">Backlinks</span> integriert hat (siehe oben). Mithilfe dieser Backlinks lässt sich das <a href="https://de.wikipedia.org/wiki/Zettelkasten" target="_blank" rel="noopener noreferrer">Zettelkastensystem</a> äußerst effizient in die Realität umsetzen. Wenn du nicht weißt was damit gemeint ist, dann schau gerne auf meinem <a href="https://youtu.be/QvSiW1Jq3rA?si=0tgJq-d6Q3BbIB63" target="_blank" rel="noopener noreferrer">Youtube Video</a> vorbei. Es gibt auch noch viele weitere Inhalte im Internet zu diesem Thema.</p>
 
-</article></div></main></body></html>
+</article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>

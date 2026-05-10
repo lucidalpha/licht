@@ -536,8 +536,69 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 	vertical-align: top;
 }
 
-@media (max-width: 900px) { .site-shell { display: block; } .site-nav { border-right: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; padding-bottom: 18px; padding-right: 0; } }
-</style></head><body><main class="page page-wide"><header class="hero"><h1>Nostera</h1></header><div class="site-shell"><nav class="site-nav"><h2>Inhalte</h2>
+.mobile-nav {
+	display: block;
+}
+.mobile-nav > summary {
+	display: none;
+}
+.site-nav-body {
+	display: block;
+}
+
+@media (max-width: 900px) {
+	.site-shell {
+		display: flex;
+		flex-direction: column;
+	}
+	.site-nav {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		margin: 0 0 24px;
+		order: 1;
+		padding: 0;
+	}
+	.content {
+		order: 2;
+	}
+	.mobile-nav > summary {
+		align-items: center;
+		color: var(--text);
+		display: flex;
+		font-family: var(--font-ui);
+		font-size: 0.86rem;
+		font-weight: 700;
+		justify-content: space-between;
+		letter-spacing: 0.04em;
+		list-style: none;
+		margin: 0;
+		padding: 12px 14px;
+		text-transform: uppercase;
+	}
+	.mobile-nav > summary::-webkit-details-marker {
+		display: none;
+	}
+	.mobile-nav > summary::after {
+		content: "+";
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		line-height: 1;
+	}
+	.mobile-nav[open] > summary::after {
+		content: "-";
+	}
+	.site-nav-body {
+		border-top: 1px solid var(--border);
+		padding: 12px 14px 14px;
+	}
+}
+
+@media (min-width: 901px) {
+	.mobile-nav:not([open]) > .site-nav-body {
+		display: block !important;
+	}
+}
+</style></head><body><main class="page page-wide"><header class="hero"><h1>Nostera</h1></header><div class="site-shell"><nav class="site-nav"><details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">
 <a class="nav-link" href="../index.html">Startseite</a>
 <details class="nav-folder" open><summary>Licht</summary>
 <a class="nav-link nav-child" href="Buchempfehlungen.html">Buchempfehlungen</a>
@@ -562,8 +623,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
-</nav><article class="content"><h1 id="nostera">Nostera</h1>
+</div></details></nav><article class="content"><h1 id="nostera">Nostera</h1>
 <p>Ich habe vor einiger Zeit eine Modemarke gegründet, welche Kleidung aus Bio Baumwolle in die Masse bringen soll. Dabei habe ich mir folgende Gedanken gemacht: Die Haut wird oft als unser größtes Organ bezeichnet und wir nehmen ziemlich viel aus der Umwelt in diese auf. Die meisten Leute tragen jedoch Kleidung die entweder aus Polyester (Plastik) besteht und/oder chemisch stark behandelt wurde. Naturstoffe wie Bio Baumwolle, Leinen, Wolle, Hanf usw. sind nicht nur besser für die Umwelt, sondern sind auch besser für unsere Gesundheit und unser Wohlbefinden beim Tragen der Kleidung.</p>
 <p>Das Problem mit diesen Stoffen ist jedoch: Sie sind einerseits oft ziemlich teuer und andererseits werden sie oft nur in einer Art &quot;Alternativen Szene&quot; getragen. Die Kleidung sieht oft anders aus als die &quot;coole&quot; Mode, die die Masse heutzutage trägt. Ich möchte deshalb Kleidung in den Markt bringen, die einerseits möglichst günstig ist und andererseits (zumindest war dies meine Absicht 🙃) gut aussieht.</p>
 <p>Meine Marke heißt Nostera und ich verkaufe dort T-Shirts für einen Stückpreis von €14.99. Für die Produktion habe ich inetwa €10 bezahlt und mache somit nicht viel Marge pro T-Shirt.</p>
-<p>Ich würde mich sehr freuen, wenn du mich bei diesem Projekt unterstützen würdest. Zu meinem Store kommst du über diesen <a href="https://nostera.de/" target="_blank" rel="noopener noreferrer">Link </a>. Bei Fragen zum Produkt oder generell, kannst du mich gerne auf Social Media anschreiben oder über awincommerce@gmail.com kontaktieren.</p><figure class="media-embed"><img src="../assets/media/IMG_3275.jpg" alt="IMG_3275"></figure></article></div></main></body></html>
+<p>Ich würde mich sehr freuen, wenn du mich bei diesem Projekt unterstützen würdest. Zu meinem Store kommst du über diesen <a href="https://nostera.de/" target="_blank" rel="noopener noreferrer">Link </a>. Bei Fragen zum Produkt oder generell, kannst du mich gerne auf Social Media anschreiben oder über awincommerce@gmail.com kontaktieren.</p><figure class="media-embed"><img src="../assets/media/IMG_3275.jpg" alt="IMG_3275"></figure></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>

@@ -536,8 +536,69 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 	vertical-align: top;
 }
 
-@media (max-width: 900px) { .site-shell { display: block; } .site-nav { border-right: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; padding-bottom: 18px; padding-right: 0; } }
-</style></head><body><main class="page page-wide"><header class="hero"><h1>Tradingview Indikatoren</h1></header><div class="site-shell"><nav class="site-nav"><h2>Inhalte</h2>
+.mobile-nav {
+	display: block;
+}
+.mobile-nav > summary {
+	display: none;
+}
+.site-nav-body {
+	display: block;
+}
+
+@media (max-width: 900px) {
+	.site-shell {
+		display: flex;
+		flex-direction: column;
+	}
+	.site-nav {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		margin: 0 0 24px;
+		order: 1;
+		padding: 0;
+	}
+	.content {
+		order: 2;
+	}
+	.mobile-nav > summary {
+		align-items: center;
+		color: var(--text);
+		display: flex;
+		font-family: var(--font-ui);
+		font-size: 0.86rem;
+		font-weight: 700;
+		justify-content: space-between;
+		letter-spacing: 0.04em;
+		list-style: none;
+		margin: 0;
+		padding: 12px 14px;
+		text-transform: uppercase;
+	}
+	.mobile-nav > summary::-webkit-details-marker {
+		display: none;
+	}
+	.mobile-nav > summary::after {
+		content: "+";
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		line-height: 1;
+	}
+	.mobile-nav[open] > summary::after {
+		content: "-";
+	}
+	.site-nav-body {
+		border-top: 1px solid var(--border);
+		padding: 12px 14px 14px;
+	}
+}
+
+@media (min-width: 901px) {
+	.mobile-nav:not([open]) > .site-nav-body {
+		display: block !important;
+	}
+}
+</style></head><body><main class="page page-wide"><header class="hero"><h1>Tradingview Indikatoren</h1></header><div class="site-shell"><nav class="site-nav"><details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">
 <a class="nav-link" href="../index.html">Startseite</a>
 <details class="nav-folder" open><summary>Licht</summary>
 <a class="nav-link nav-child" href="../Licht/Buchempfehlungen.html">Buchempfehlungen</a>
@@ -562,6 +623,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
-</nav><article class="content"><h1 id="tradingview-indikatoren">Tradingview Indikatoren</h1>
+</div></details></nav><article class="content"><h1 id="tradingview-indikatoren">Tradingview Indikatoren</h1>
 <p>Ich veröffentliche kostenlose Indikatoren für Tradingview: <a href="https://www.tradingview.com/u/AWinTrading/" target="_blank" rel="noopener noreferrer">https://www.tradingview.com/u/AWinTrading/</a></p>
-<p>Alle diese Indikatoren habe ich mithilfe von AI gebaut. Du kannst sie gerne kopieren, abändern und damit machen was du möchtest.</p></article></div></main></body></html>
+<p>Alle diese Indikatoren habe ich mithilfe von AI gebaut. Du kannst sie gerne kopieren, abändern und damit machen was du möchtest.</p></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>
