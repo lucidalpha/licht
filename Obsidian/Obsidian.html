@@ -578,6 +578,10 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 	.mobile-nav > summary::-webkit-details-marker {
 		display: none;
 	}
+	.mobile-nav > summary::before {
+		content: none;
+		display: none;
+	}
 	.mobile-nav > summary::after {
 		border-color: currentColor;
 		border-style: solid;
