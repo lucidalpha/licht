@@ -601,6 +601,34 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 	}
 }
 
+.book-recs {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: minmax(0, 1fr) minmax(180px, 300px);
+	max-width: 980px;
+}
+.book-recs-copy {
+	min-width: 0;
+}
+.book-tree {
+	align-self: start;
+	border: 0;
+	height: auto;
+	justify-self: end;
+	margin-top: -8px;
+	max-width: 100%;
+	width: 280px;
+}
+@media (max-width: 760px) {
+	.book-recs {
+		grid-template-columns: 1fr;
+	}
+	.book-tree {
+		justify-self: center;
+		margin: 10px auto 0;
+		width: min(240px, 78vw);
+	}
+}
 @media (min-width: 901px) {
 	.mobile-nav:not([open]) > .site-nav-body {
 		display: block !important;
@@ -631,10 +659,10 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
-</div></details></nav><article class="content"><h1 id="buchempfehlungen">Buchempfehlungen</h1>
+</div></details></nav><article class="content"><div class="book-recs"><div class="book-recs-copy"><h1 id="buchempfehlungen">Buchempfehlungen</h1>
 <p>Ich habe jede Menge Bücher zu den Themen Persönlichkeitsentwicklung und Mindset gelesen. Wenn ich dir ein paar wenige empfehlen dürfte, wären es die folgenden:</p>
 <ol>
 <li>Der Alchimist von Paulo Coelho</li>
 <li>Can&#x27;t hurt me von David Goggins</li>
 <li>Think and Grow Rich von Napoleon Hill</li>
-</ol></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>
+</ol></div><img class="book-tree" src="../assets/media/buch-baum.png" alt="Gezeichneter Baum"></div></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>
