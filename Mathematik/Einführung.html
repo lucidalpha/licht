@@ -606,6 +606,30 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 		display: block !important;
 	}
 }
+
+.intro-figure {
+	align-items: start;
+	display: grid;
+	gap: 28px;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+	margin: 8px 0 16px;
+}
+.intro-figure img {
+	aspect-ratio: 3 / 4;
+	display: block;
+	height: auto;
+	width: 100%;
+}
+@media (max-width: 720px) {
+	.intro-figure {
+		gap: 18px;
+		grid-template-columns: 1fr;
+	}
+	.intro-figure img {
+		margin: 0 auto;
+		max-width: 280px;
+	}
+}
 </style></head><body><main class="page page-wide"><header class="hero"><h1>Einführung</h1></header><div class="site-shell"><nav class="site-nav"><details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">
 <a class="nav-link" href="../index.html">Startseite</a>
 <details class="nav-folder" open><summary>Licht</summary>
@@ -635,4 +659,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
 </div></details></nav><article class="content"><h1 id="einfuehrung">Einführung</h1>
-<p>Diese Seite sammelt künftig die grundlegenden Inhalte und Einstiege zum Thema Mathematik.</p></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>
+<div class="intro-figure">
+<div>
+<p>Diese Seite sammelt künftig die grundlegenden Inhalte und Einstiege zum Thema Mathematik.</p>
+</div>
+<img src="../assets/media/gehirn-900.jpg" srcset="../assets/media/gehirn-900.jpg 900w, ../assets/media/gehirn-1800.jpg 1800w" sizes="(max-width: 720px) 280px, 320px" alt="Illustration eines Gehirns mit farbig hervorgehobenen Hirnlappen" width="900" height="1200" loading="lazy" decoding="async">
+</div></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>
