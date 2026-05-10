@@ -579,15 +579,19 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 		display: none;
 	}
 	.mobile-nav > summary::after {
-		content: "+";
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
-		line-height: 1;
+		border-color: currentColor;
+		border-style: solid;
+		border-width: 0 1.5px 1.5px 0;
+		content: "";
+		display: inline-block;
+		height: 8px;
+		transform: rotate(45deg);
+		transition: transform 160ms ease;
+		width: 8px;
 	}
 	.mobile-nav[open] > summary::after {
-		content: "-";
-	}
-	.site-nav-body {
+		transform: rotate(-135deg);
+	}	.site-nav-body {
 		border-top: 1px solid var(--border);
 		padding: 12px 14px 14px;
 	}
