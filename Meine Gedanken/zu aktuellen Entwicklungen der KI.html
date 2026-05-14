@@ -1,0 +1,690 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>zu aktuellen Entwicklungen der KI</title><style>:root {
+	--bg: #f7f7f4;
+	--surface: #ffffff;
+	--surface-soft: #eeeeea;
+	--surface-muted: #e4e4df;
+	--text: #151515;
+	--muted: #6f6f69;
+	--faint: #9a9a92;
+	--border: #d9d9d2;
+	--border-strong: #b8b8af;
+	--accent: #2f2f2b;
+	--accent-strong: #000000;
+	--warning: #6f6548;
+	--danger: #6d4b4b;
+	--success: #4f5f4f;
+	--code-bg: #191919;
+	--code-text: #f4f4ef;
+
+	--font-body: "CMU Serif Exact", "Latin Modern Roman", "Latin Modern Roman 10", "CMU Serif", "Computer Modern Serif", "New Computer Modern", Georgia, "Times New Roman", serif;
+	--font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+	--font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+
+	--radius: 7px;
+	--max-width: none;
+	--shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 18px 42px rgba(0, 0, 0, 0.045);
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../assets/fonts/cmunrm.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../assets/fonts/cmunbx.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: italic;
+	font-weight: 400;
+	src: url("../assets/fonts/cmunti.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "CMU Serif Exact";
+	font-style: italic;
+	font-weight: 700;
+	src: url("../assets/fonts/cmunbi.ttf") format("truetype");
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: 18px;
+	text-rendering: optimizeLegibility;
+}
+
+main,
+.page {
+	margin: 0 auto;
+	max-width: var(--max-width);
+	padding: 42px 42px 56px;
+	width: 100%;
+}
+
+.page-wide {
+	max-width: none;
+}
+
+.page-narrow {
+	max-width: 760px;
+}
+
+header,
+.hero {
+	border-bottom: 1px solid var(--border);
+	margin-bottom: 24px;
+	padding-bottom: 22px;
+}
+
+.eyebrow {
+	color: var(--muted);
+	font-family: var(--font-ui);
+	font-size: 0.72rem;
+	font-weight: 650;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-body);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.08;
+	margin: 0;
+}
+
+h1 {
+	font-size: clamp(2.35rem, 5vw, 4.6rem);
+	margin-top: 12px;
+}
+
+h2 {
+	font-size: 1.65rem;
+	margin-bottom: 12px;
+}
+
+h3 {
+	font-size: 1.15rem;
+	margin-bottom: 8px;
+}
+
+p {
+	line-height: 1.56;
+	margin: 0 0 10px;
+}
+
+a {
+	color: var(--accent-strong);
+	text-decoration-color: var(--border-strong);
+	text-underline-offset: 3px;
+}
+
+code {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	font-family: var(--font-mono);
+	font-size: 0.84em;
+	padding: 0.1em 0.32em;
+}
+
+pre {
+	background: var(--code-bg);
+	border-radius: var(--radius);
+	color: var(--code-text);
+	font-size: 0.9rem;
+	overflow: auto;
+	padding: 18px;
+}
+
+pre code {
+	background: transparent;
+	border: 0;
+	color: inherit;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 0.98rem;
+	width: 100%;
+}
+
+th,
+td {
+	border-bottom: 1px solid var(--border);
+	padding: 11px 10px;
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	color: var(--muted);
+	font-family: var(--font-ui);
+	font-size: 0.73rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.lead {
+	color: var(--muted);
+	font-size: 1.22rem;
+	line-height: 1.48;
+	max-width: 860px;
+}
+
+.serif {
+	font-family: var(--font-body);
+}
+
+.mono {
+	font-family: var(--font-mono);
+}
+
+.section {
+	margin-top: 20px;
+}
+
+.panel {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: 20px;
+}
+
+.panel-soft {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 18px;
+}
+
+.grid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-2 {
+	display: grid;
+	gap: 18px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 16px;
+}
+
+.callout {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-left: 3px solid var(--accent);
+	border-radius: var(--radius);
+	padding: 14px 16px;
+}
+
+.callout.warning {
+	border-left-color: var(--warning);
+}
+
+.callout.danger {
+	border-left-color: var(--danger);
+}
+
+.callout.success {
+	border-left-color: var(--success);
+}
+
+.button {
+	align-items: center;
+	background: var(--text);
+	border: 1px solid var(--text);
+	border-radius: 6px;
+	color: var(--surface);
+	cursor: pointer;
+	display: inline-flex;
+	font-family: var(--font-ui);
+	font-size: 0.92rem;
+	font-weight: 600;
+	gap: 8px;
+	justify-content: center;
+	min-height: 40px;
+	padding: 9px 14px;
+	text-decoration: none;
+}
+
+.button:hover {
+	background: var(--accent-strong);
+}
+
+.toolbar {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 18px 0;
+}
+
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 18px 0;
+}
+
+.tab {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	color: var(--muted);
+	cursor: pointer;
+	font-family: var(--font-ui);
+	font-size: 0.9rem;
+	padding: 8px 12px;
+}
+
+.tab.active {
+	background: var(--text);
+	border-color: var(--text);
+	color: var(--surface);
+}
+
+.timeline {
+	border-left: 1px solid var(--border-strong);
+	display: grid;
+	gap: 14px;
+	margin-left: 8px;
+	padding-left: 24px;
+}
+
+.timeline-item {
+	position: relative;
+}
+
+.timeline-item::before {
+	background: var(--bg);
+	border: 1px solid var(--accent);
+	border-radius: 50%;
+	content: "";
+	height: 10px;
+	left: -30px;
+	position: absolute;
+	top: 5px;
+	width: 10px;
+}
+
+.figure {
+	margin: 14px 0;
+	max-width: 980px;
+}
+
+.figure img {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.figure figcaption {
+	color: var(--muted);
+	font-size: 0.92rem;
+	line-height: 1.45;
+	margin-top: 8px;
+}
+
+.sources {
+	font-size: 0.96rem;
+	margin: 0;
+	max-width: 980px;
+	padding-left: 1.2em;
+}
+
+.sources li {
+	line-height: 1.5;
+	margin-bottom: 8px;
+}
+
+.badge {
+	background: var(--surface-soft);
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	color: var(--muted);
+	display: inline-flex;
+	font-family: var(--font-ui);
+	font-size: 0.74rem;
+	font-weight: 650;
+	margin-bottom: 10px;
+	padding: 4px 9px;
+}
+
+.split {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+}
+
+@media (max-width: 820px) {
+	.grid-2,
+	.grid-3,
+	.split {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 680px) {
+	body {
+		font-size: 17px;
+	}
+
+	main,
+	.page {
+		padding: 34px 18px 52px;
+	}
+
+	h1 {
+		font-size: 2.45rem;
+	}
+}
+
+.site-shell { display: grid; gap: 28px; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); }
+.site-nav { border-right: 1px solid var(--border); font-family: var(--font-ui); font-size: 0.92rem; padding-right: 22px; }
+.site-nav h2 { font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 12px; text-transform: uppercase; }
+.site-nav a { display: block; line-height: 1.35; margin: 0 0 8px; text-decoration: none; }
+.site-nav a:hover { text-decoration: underline; }
+.content { max-width: none; }
+.content h1, .content h2, .content h3 { margin: 28px 0 10px; }
+.content h1:first-child { margin-top: 0; }
+.wikilink { background: var(--surface-soft); border: 1px solid var(--border); border-radius: 5px; padding: 0.02em 0.28em; text-decoration: none; }
+.media-embed { margin: 16px 0; max-width: 980px; }
+.media-embed img, .media-embed video { border: 1px solid var(--border); display: block; height: auto; max-width: 100%; }
+blockquote { background: var(--surface-soft); border-left: 3px solid var(--accent); margin: 14px 0; padding: 12px 14px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
+
+.site-nav details {
+	margin: 10px 0 0;
+}
+.site-nav summary {
+	color: var(--muted);
+	cursor: pointer;
+	font-family: var(--font-ui);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	list-style: none;
+	margin: 14px 0 7px;
+	text-transform: uppercase;
+}
+.site-nav summary::-webkit-details-marker {
+	display: none;
+}
+.site-nav summary::before {
+	content: "+";
+	display: inline-block;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	margin-right: 7px;
+	width: 10px;
+}
+.site-nav details[open] summary::before {
+	content: "-";
+}
+.site-nav .nav-child {
+	border-left: 1px solid var(--border);
+	margin-left: 5px;
+	padding-left: 12px;
+}
+
+
+.content h1 {
+	font-size: clamp(2rem, 3.4vw, 3.35rem);
+	margin: 24px 0 12px;
+}
+.content h2 {
+	font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+	margin: 22px 0 10px;
+}
+.content h3 {
+	font-size: 1.22rem;
+	margin: 18px 0 8px;
+}
+.content h4 {
+	font-size: 1.05rem;
+	margin: 16px 0 8px;
+}
+.content p {
+	line-height: 1.58;
+	margin-bottom: 12px;
+	max-width: 980px;
+}
+.content ul,
+.content ol {
+	line-height: 1.55;
+	margin: 8px 0 16px;
+	max-width: 980px;
+}
+.content li {
+	margin-bottom: 5px;
+}
+.hero h1 {
+	font-size: clamp(2.4rem, 4.6vw, 4.8rem);
+}
+
+
+.content a[href^="http"] {
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+.content p br {
+	content: "";
+	display: block;
+	margin-top: 6px;
+}
+
+
+.hero h1 {
+	font-size: clamp(2rem, 3.2vw, 3.6rem);
+}
+.content h1 {
+	font-size: clamp(1.65rem, 2.55vw, 2.65rem);
+}
+.content h2 {
+	font-size: clamp(1.28rem, 1.8vw, 1.75rem);
+}
+
+
+.content p:has(br) {
+	line-height: 1.72;
+}
+.content p:has(br) a[href^="http"] {
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: top;
+}
+
+.mobile-nav {
+	display: block;
+}
+.mobile-nav > summary {
+	display: none;
+}
+.site-nav-body {
+	display: block;
+}
+
+@media (max-width: 900px) {
+	.site-shell {
+		display: flex;
+		flex-direction: column;
+	}
+	.site-nav {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		margin: 0 0 24px;
+		order: 1;
+		padding: 0;
+	}
+	.content {
+		order: 2;
+	}
+	.mobile-nav > summary {
+		align-items: center;
+		color: var(--text);
+		display: flex;
+		font-family: var(--font-ui);
+		font-size: 0.86rem;
+		font-weight: 700;
+		justify-content: space-between;
+		letter-spacing: 0.04em;
+		list-style: none;
+		margin: 0;
+		padding: 12px 14px;
+		text-transform: uppercase;
+	}
+	.mobile-nav > summary::-webkit-details-marker {
+		display: none;
+	}
+	.mobile-nav > summary::before {
+		content: none;
+		display: none;
+	}
+	.mobile-nav > summary::after {
+		border-color: currentColor;
+		border-style: solid;
+		border-width: 0 1.5px 1.5px 0;
+		content: "";
+		display: inline-block;
+		height: 8px;
+		transform: rotate(45deg);
+		transition: transform 160ms ease;
+		width: 8px;
+	}
+	.mobile-nav[open] > summary::after {
+		transform: rotate(-135deg);
+	}	.site-nav-body {
+		border-top: 1px solid var(--border);
+		padding: 12px 14px 14px;
+	}
+}
+
+@media (min-width: 901px) {
+	.mobile-nav:not([open]) > .site-nav-body {
+		display: block !important;
+	}
+}
+</style></head><body><main class="page page-wide"><header class="hero"><h1>zu aktuellen Entwicklungen der KI</h1></header><div class="site-shell"><nav class="site-nav"><details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">
+<a class="nav-link" href="../index.html">Startseite</a>
+<details class="nav-folder" open><summary>Licht</summary>
+<a class="nav-link nav-child" href="../Licht/Buchempfehlungen.html">Buchempfehlungen</a>
+<a class="nav-link nav-child" href="../Licht/Nostera.html">Nostera</a>
+</details>
+<details class="nav-folder" open><summary>Mathematik</summary>
+<a class="nav-link nav-child" href="../Mathematik/Einf&#252;hrung.html">Einf&#252;hrung</a>
+</details>
+<details class="nav-folder" open><summary>Meine Gedanken</summary>
+<a class="nav-link nav-child" href="../Meine Gedanken/zu aktuellen Entwicklungen der KI.html">zu aktuellen Entwicklungen der KI</a>
+</details>
+<details class="nav-folder" open><summary>Obsidian</summary>
+<a class="nav-link nav-child" href="../Obsidian/Meine Plugins.html">Meine Plugins</a>
+<a class="nav-link nav-child" href="../Obsidian/Obsidian.html">Obsidian</a>
+</details>
+<details class="nav-folder" open><summary>Trading</summary>
+<a class="nav-link nav-child" href="../Trading/Trading.html">Trading</a>
+<a class="nav-link nav-child" href="../Trading/Tradingview Indikatoren.html">Tradingview Indikatoren</a>
+</details>
+<details class="nav-folder" open><summary>Youtube Quellen</summary>
+<a class="nav-link nav-child" href="../Youtube Quellen/Der Mann, der das eine Millionen Dollar Problem l&#246;ste.html">Der Mann, der das eine Millionen Dollar Problem l&#246;ste</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Die Macht des Luziden Tr&#228;umens.html">Die Macht des Luziden Tr&#228;umens</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Die verschiedenen Gebiete der Mathematik.html">Die verschiedenen Gebiete der Mathematik</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Meine Meinung zum Remarkable Paper Pro.html">Meine Meinung zum Remarkable Paper Pro</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Was macht Lesen mit uns.html">Was macht Lesen mit uns</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wer war Ramanujan.html">Wer war Ramanujan</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wie dachte Richard Feynman.html">Wie dachte Richard Feynman</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
+<a class="nav-link nav-child" href="../Youtube Quellen/Wie k&#246;nnen wir Fokus erreichen.html">Wie k&#246;nnen wir Fokus erreichen</a>
+</details>
+</div></details></nav><article class="content"><p>&quot;If I were 22 right now, I&#39;d feel like the luckiest kid in history&quot;</p>
+<p>Das kommt nicht von irgendeinem Motivationscoach, sondern von einer der einflussreichsten Pers&#246;nlichkeiten der heutigen Zeit. Sam Altman, der CEO und Mitgr&#252;nder von OpenAI, sagte dies in einem <a href="https://youtu.be/hmtuvNfytjM?si=e3axZ-uP3_sjFf_O&amp;t=1380" target="_blank" rel="noopener noreferrer">Podcast</a> mit der YouTuberin und Journalistin Cleo Abram (ab 23 min).</p>
+<h4 id="was-meint-er-damit">Was meint er damit</h4>
+<p>Sinngem&#228;&#223; hat Sam Altman Folgendes gesagt:</p>
+<p>Wenn ich jetzt gerade 22 w&#228;re und frisch vom College kommen w&#252;rde, dann w&#252;rde ich mich f&#252;hlen wie das gl&#252;cklichste Kind in der Geschichte. Es gab niemals eine bessere Zeit, um etwas Neues zu kreieren oder zu erfinden, ein Unternehmen zu starten oder was auch immer. Ich glaube, es ist wahrscheinlich sogar m&#246;glich, ein Ein-Personen-Unternehmen aufzubauen, das mehr als eine Milliarde Dollar wert sein kann. Und viel wichtiger als das: ein Unternehmen, das ein tolles Produkt oder eine tolle Dienstleistung anbieten kann. Man hat heutzutage Zugang zu Tools, die einen Dinge tun lassen k&#246;nnen, f&#252;r die es bis vor Kurzem noch Teams von Hunderten Menschen gebraucht h&#228;tte. Du musst nur lernen, wie man diese Tools benutzt, und eine gute Idee haben. Es ist schon sehr faszinierend.</p>
+<h4 id="meine-gedanken-dazu">Meine Gedanken dazu</h4>
+<p>Sam Altman spricht nat&#252;rlich die gesamte Zeit &#252;ber die M&#246;glichkeiten mit KI. Zur Einordnung muss man hierbei beachten, dass er Chef eines Unternehmens ist, dessen Gesch&#228;ftsmodell vollkommen auf k&#252;nstlicher Intelligenz basiert. Trotzdem spricht er meiner Meinung nach etwas an, was viele Menschen noch nicht verstanden haben. F&#252;r Leute aus der AI-Bubble ist das alles nichts Neues, aber es gibt heutzutage immer noch viele, viele Menschen, die sich t&#228;glich mit den gleichen Workflows herumschlagen, die t&#228;glich die gleichen E-Mails schreiben und damit ihren halben Tag verbringen. Diese Menschen wissen das &#252;ber KI, was man aus den Medien mitbekommt: Sie macht Fehler, ist politisch nicht neutral und arbeitet nicht so gut wie ein Mensch.</p>
+<p>Viele Menschen lassen deshalb direkt die Finger davon oder haben 3-4 Chats bei ChatGPT ge&#246;ffnet, was sie nicht &#252;berzeugt hat.</p>
+<h4 id="die-große-masse-hat-keine-ahnung">Die gro&#223;e Masse hat keine Ahnung</h4>
+<p>An sich ist KI ja, wie bereits erw&#228;hnt, schon in der Masse angekommen. Sobald deine Oma davon h&#246;rt und dir dar&#252;ber erz&#228;hlt, wei&#223;t du das. Ein gro&#223;er Teil der Sch&#252;ler nutzt ChatGPT allt&#228;glich in der Schule, vor allem, um sich L&#246;sungen geben zu lassen. Viele Menschen benutzen KI auch einfach als zweites Google.</p>
+<p>Aber das ist genau das, worin ich nicht den Hauptvorteil von k&#252;nstlicher Intelligenz sehe: Wenn die KI dir L&#246;sungen zu Aufgaben gibt, die du eigentlich selbst h&#228;ttest machen sollen, ist das sch&#246;n und gut, solange du nur durchkommen m&#246;chtest. Aber wenn man tats&#228;chlich den Anspruch hat, etwas zu lernen, dann macht das keinen Sinn. Und der KI die Frage zu stellen: &quot;Was sind die sch&#246;nsten Orte in Berlin?&quot;, das hat man bereits vor 5 Jahren mit Google machen k&#246;nnen, daf&#252;r braucht man keine KI.</p>
+<h4 id="wie-man-ki-stattdessen-nutzen-sollte">Wie man KI stattdessen nutzen sollte</h4>
+<p>Rund 2/3 der deutschen Bev&#246;lkerung nutzt KI. Das ist durchaus ein gro&#223;er Anteil. 95% davon haben jedoch bei Weitem noch nicht erkannt, was bereits alles m&#246;glich ist, und obwohl ich kein Freund von diesem Wort bin, sage ich es: Sie benutzen KI FALSCH. Bevor ich dar&#252;ber schreiben m&#246;chte, wie man KI denn wirklich nutzen sollte, schauen wir uns ein Problem an, mit dem viele t&#228;glich zu tun haben: Kontext. Ein Beispiel: Ich bitte ChatGPT im Browser, mir eine E-Mail in meinem Schreibstil zu schreiben. Um den richtigen Stil zu treffen, schreiben wir viele Male hin und her, und irgendwann klappt es: Ich bin zufrieden mit dem Ergebnis und h&#228;tte gerne ein paar weitere E-Mails. Das funktioniert auch ganz gut, doch irgendwann merke ich, dass die Antworten immer schlechter werden. Hier kommt der erste Aspekt des Kontextproblems ins Spiel. Kontext ist begrenzt, und je mehr Kontext (gemessen in Input- und Output-Token) verbraucht wird, desto schlechter werden die Ergebnisse. Nat&#252;rlich verbessert sich das stetig, und eine Konversation mit aktuelleren KI-Modellen h&#228;lt viel mehr stand als noch vor einem Jahr. Aber Kontext hat noch ein zweites Problem: Er geht verloren. Denn wenn ich jetzt einen neuen, &quot;frischen&quot; Chat &#246;ffne, um dort mit ChatGPT weiterzuschreiben, wei&#223; das Modell nicht mehr, wie die E-Mails auszusehen haben. Nat&#252;rlich kann ich ihm einen guten Prompt mit Beispielen geben, aber das wird nicht direkt so gut klappen wie zuvor.</p>
+<p>Aufgrund all dieser Probleme macht es nur Sinn, die KI direkt im Kontext arbeiten zu lassen. Anstatt jedes Mal aufs Neue viele Beispieldokumente usw. anzuh&#228;ngen, starte ich die KI direkt in meinem Projekt. Sie besorgt sich automatisch Informationen und alles, was sie ben&#246;tigt, um das gew&#252;nschte Ergebnis (m&#246;glichst genormt) zu produzieren.</p>
+<p>In der Praxis kann man dies einrichten, indem man den normalen Chat im Browser verl&#228;sst und die KI in lokalen Projektverzeichnissen (also im Dateisystem des Computers) installiert. Das klingt schwieriger, als es ist, und man hat dies bereits mit wenigen Klicks erledigt. Jedes ernst zu nehmende AI-Lab bietet diese M&#246;glichkeiten. Aktuell haben wir <a href="https://code.claude.com/docs/de/overview" target="_blank" rel="noopener noreferrer">Claude Code von Anthropic</a>, <a href="https://openai.com/de-DE/codex/" target="_blank" rel="noopener noreferrer">Codex von OpenAI</a> und <a href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">Antigravity von Google</a> (Stand Mai 2026). Die Toollandschaft ver&#228;ndert sich st&#228;ndig, wobei die Infrastruktur an sich gleich bleibt: Gib der KI Zugriff auf einen lokalen Ordner, gib ihr dort noch weitere Anweisungen (&#252;ber Skills, Plugins usw.) und lass sie arbeiten. Wie genau das funktioniert, darum soll es hier gar nicht gehen.</p>
+<p>Das, was ich vermitteln wollte, ist, dass sich ein erheblicher Teil des Kontextproblems dadurch l&#246;sen l&#228;sst, KI lokal einzusetzen. Au&#223;erdem sind NUR so gr&#246;&#223;ere Coding-Projekte, Wissensarbeit, Datenbankarbeit usw. m&#246;glich. Denn hier l&#228;sst man der KI viele Freiheiten, die sie nicht hat, wenn man ihr im Browser eine Excel-Datei gibt und davon ausgeht, dass sie das schon irgendwie hinbekommt. Das ist der derzeit beste Workflow in der Arbeit mit KI und wird vermutlich auch in Bezug auf Chatbots lange Zeit so bleiben. Nat&#252;rlich wird die Brain Power usw. immer besser werden, aber dieser Prozess, bei dem die KI direkt in deinem Dateiverzeichnis agiert, wird vermutlich so bleiben.</p>
+<p>Man hat vielleicht schon mal etwas davon geh&#246;rt, die KI direkt im Terminal zu benutzen, hat sich aber alleine schon wegen des Begriffes &quot;Terminal&quot; geweigert. Dabei geht es hier nicht NUR um ein Coding-Tool. Die Systeme wurden zwar prim&#228;r f&#252;r Programmierer gebaut, die mit der KI am Code arbeiten wollen, aber es lassen sich in vielen Bereichen viel, viel bessere Ergebnisse erzielen.</p>
+<p>Denn von der Brain Power her ist es egal, ob man die KI im Browser oder direkt im Dateiverzeichnis verwendet. Tats&#228;chlich finde ich die Modelle direkt im Dateiverzeichnis auch viel intelligenter und robuster, da dort mit Agent-Systemen gearbeitet wird, die nicht nur zum Tragen kommen, wenn man nur im Browser bleibt.</p>
+<p>Zur Inspiration sind hier einige von den unendlich vielen M&#246;glichkeiten, die KI direkt im Dateiverzeichnis bietet:</p>
+<ul>
+<li>Restrukturierung von (Wissens-)Datenbanken</li>
+<li>Wissensmanagement</li>
+<li>Personal Tutor</li>
+<li>Coding</li>
+<li>Bau von ma&#223;geschneiderten Anwendungen f&#252;r einen selbst oder als Dienstleistung</li>
+<li>Bauen von Websites</li>
+<li>Analyse von gro&#223;en Datenmengen</li>
+<li>...</li>
+</ul>
+<p>WICHTIG: Die KI kann sehr viel tun und wei&#223; an sich alles, was sie ben&#246;tigt, um dies zu tun. Was ihr jedoch fehlt, ist ein Plan oder ein Framework. Denn ohne grobe Vorgabe wird das Modell das tun, was am offensichtlichsten ist, und sehr selten zu einem gew&#252;nschten Ergebnis kommen. Ein Programmierer wird deswegen viel bessere Ergebnisse mit der KI erzielen k&#246;nnen als jemand, der nichts vom Coden oder von Infrastruktur versteht. Ein guter Trader wird KI viel profitabler einsetzen k&#246;nnen als jemand, der ihr sagt: Entwickle mir eine Trading-Strategie.</p>
+<p>Es geht also weiterhin um das Verst&#228;ndnis &#252;ber die Themen und die daf&#252;r n&#246;tige Infrastruktur. Das &quot;Coole&quot; ist jedoch: Detailwissen braucht man nicht mehr: Man muss nicht mehr die gesamte Java-Syntax auswendig k&#246;nnen, Formeln kennen, Abl&#228;ufe abrufen usw. Ein sehr gutes Verst&#228;ndnis von dem Ziel und dem Weg dorthin zu haben, ist deshalb sehr relevant.</p>
+<h4 id="was-sind-die-derzeit-größten-probleme-von-künstlicher-intelligenz">Was sind die derzeit gr&#246;&#223;ten Probleme von k&#252;nstlicher Intelligenz</h4>
+<p>Es gibt nat&#252;rlich viele Probleme, und ich werde im Folgenden nicht alle aufz&#228;hlen k&#246;nnen, aber ich f&#252;hre hier vor allem das an, was ich in meiner t&#228;glichen Arbeit gemerkt habe. Wir haben nat&#252;rlich das Kontextproblem, &#252;ber das wir gesprochen haben. Dieses l&#228;sst sich aber immer besser l&#246;sen, ohne direkt auf bessere Modelle angewiesen zu sein. Denn mit der richtigen &quot;Agent Harness&quot; (Umgebung, in der die KI arbeiten kann) l&#228;sst sich vieles optimieren. Richtiges Kontextmanagement (zum Beispiel mit Anwendungen wie Obsidian) ist hierbei ein Thema f&#252;r zuk&#252;nftige Beitr&#228;ge.</p>
+<p>Ein weiteres gro&#223;es Problem ist nat&#252;rlich der Datenschutz und die Datensicherheit. Daf&#252;r werden die lokalen KI-Modelle immer interessanter (also Modelle, die man direkt auf dem Computer nutzen kann, ohne sich mit der Cloud eines gro&#223;en AI-Anbieters verbinden zu m&#252;ssen). Diese lokalen Modelle sind in den meisten F&#228;llen Open Source und den gro&#223;en Modellen h&#228;ufig etwa ein halbes Jahr hinterher. In nicht allzu ferner Zukunft wird man mit diesen Modellen aber auch exzellent arbeiten k&#246;nnen, ohne einen eigenen Rechenserver bei sich im Wohnzimmer stehen haben zu m&#252;ssen.</p>
+<p>Wie schon erw&#228;hnt, gibt es noch viel mehr Probleme und H&#252;rden, aber der Fortschritt in der Entwicklung ist einfach enorm. Bevor ich noch einige Zukunftsprognosen abgebe, m&#246;chte ich gerne noch einmal dar&#252;ber schreiben, warum Deutschland meiner Meinung nach fatal hinterher ist.</p>
+<h4 id="warum-deutschland-so-hinterher-ist">Warum Deutschland so hinterher ist</h4>
+<p>Deutschland kannte man eigentlich einmal als eines der L&#228;nder von Innovation und fortschrittlicher Technologie. Das ist in vielen Bereichen nat&#252;rlich auch immer noch so, und ich m&#246;chte hier auch kein vollkommen pessimistisches und negatives Licht auf Deutschland werfen. Aber vor allem, was k&#252;nstliche Intelligenz betrifft, hat Deutschland viele entscheidende Momente verpasst. Neben mangelnder Energieversorgung und &#220;berregulierung liegt das meiner Meinung nach auch stark daran, wie mit dem Thema KI umgegangen wird.</p>
+<p>Wie zu Beginn bereits erw&#228;hnt, denken die meisten Menschen in Deutschland so &#252;ber KI, wie es ihnen in den Medien dargestellt wird. Hier schwappt ein ganz klares Bild her&#252;ber: Die KI kann gef&#228;hrlich sein, gibt fehlerhafte Antworten, verletzt das Urheberrecht und verst&#246;&#223;t gegen Datenschutzgesetze. Nat&#252;rlich sind das alles Punkte, die man beachten MUSS und &#252;ber die man diskutieren sollte. Was mir aber vollkommen fehlt, ist die Darstellung davon, wie man KI denn f&#252;r sich nutzen kann, um damit hochproduktiv zu arbeiten.</p>
+<p>Ich gehe derzeit zur Universit&#228;t und studiere Mathematik. Die Lehrpersonen haben sich hier nat&#252;rlich auch berufen gef&#252;hlt, uns zum Thema KI aufzukl&#228;ren, und das ist auch alles legitim und sollte so sein, vor allem f&#252;r diejenigen, die sich privat nicht so viel damit besch&#228;ftigen. Was ich aber f&#252;r mich direkt gemerkt habe (ohne das hier &#252;berheblich zu meinen): Die Dozenten wissen nicht, wor&#252;ber sie sprechen. Die Ratschl&#228;ge, die sie uns bez&#252;glich KI gegeben haben, w&#228;ren vielleicht f&#252;r das erste &#246;ffentliche Modell von OpenAI Anfang 2023 hilfreich gewesen. Aber nicht drei Jahre sp&#228;ter. Wir bekamen etwas davon erz&#228;hlt, dass wir gut prompten sollen, die KI keine Quellen angibt und fehlerhaften Code produziert. Der gr&#246;&#223;te Wert wurde darauf gelegt, wie man KI in wissenschaftlichen Arbeiten zitieren sollte. Das sind nat&#252;rlich alles wichtige Themen, aber 90% davon l&#228;sst sich vollkommen beheben, indem man einfach in der richtigen Infrastruktur und mit den richtigen Tools arbeitet. Im Rahmen eines Projektes mit Python hie&#223; es auch sinngem&#228;&#223;: &quot;Wenn ihr jetzt KI nutzt, um das zu l&#246;sen (diese Coding-Aufgabe), seid ihr selbst schuld, denn am Ende m&#252;sst ihr Python selbst verstehen. Was macht ihr denn, wenn ihr mal keinen Zugriff auf KI habt?&quot;</p>
+<p>Nat&#252;rlich ist es so, dass man KI nicht nutzen sollte, um sich Musterl&#246;sungen geben zu lassen (vor allem dann nicht, wenn man ambitioniert ist, das betreffende Thema wirklich zu verstehen). Aber denken wir jetzt einmal ein paar Jahrzehnte zur&#252;ck. Hie&#223; es damals nicht auch, dass wir die Rechenmethoden weiterhin lernen sollten, denn was machen wir, wenn der Computer (damals ein neues Produkt) ausf&#228;llt? Oder hie&#223; es zu Beginn des Internets nicht auch, dass wir Fakten weiterhin im Kopf behalten sollten, denn was machen wir, wenn wir mal keine Internetverbindung haben? Heute hat jeder einen winzigen Computer in der Tasche, mit dem er st&#228;ndig vernetzt ist. Wer damals zu lange an veralteten Methoden festgehalten hat, wurde abgeh&#228;ngt. Genauso wird es in naher Zukunft obsolet sein, Programmiersprachen beherrschen zu m&#252;ssen, um etwas bewirken zu k&#246;nnen, denn KIs k&#246;nnen jetzt bereits besser programmieren als die meisten Jobeinsteiger und schneller programmieren als die besten Programmierer.</p>
+<h4 id="die-nicht-allzu-ferne-zukunft">Die (nicht allzu ferne) Zukunft</h4>
+<p>Meine Prognose ist, dass die Entwicklung nicht linear weitergehen wird, sondern sich immer weiter beschleunigt. Wir werden nicht einfach jedes Jahr ein etwas besseres ChatGPT bekommen. Wir werden Systeme bekommen, die immer eigenst&#228;ndiger arbeiten, l&#228;ngere Aufgabenketten ausf&#252;hren, sich besseren Kontext beschaffen und Ergebnisse liefern, die immer weniger wie einzelne Antworten und immer mehr wie fertige Arbeit aussehen. Diese Systeme werden Erfindungen machen, den Arbeitsmarkt umkrempeln und einen unvorstellbaren Einfluss auf unser Leben haben.</p>
+<p>Dabei wird Kontext zu einem der wichtigsten Faktoren. Nicht nur technischer Kontext im Sinne von Dateien, Datenbanken und Code, sondern auch pers&#246;nlicher und organisatorischer Kontext: Wie denkt jemand? Welche Ziele hat ein Unternehmen? Welche Prozesse gibt es? Welche Standards sollen eingehalten werden? Je besser diese Informationen verf&#252;gbar und strukturiert sind, desto st&#228;rker wird KI wirken k&#246;nnen.</p>
+<p>Ich glaube au&#223;erdem, dass viele heutige Software-Produkte unter Druck geraten werden. Wenn man sich k&#252;nftig mit KI eigene kleine Tools, Automationen und Oberfl&#228;chen bauen kann, dann braucht man f&#252;r viele Spezialprobleme keine teure Standardsoftware mehr. Das hei&#223;t nicht, dass Software as a Service von heute auf morgen verschwindet. Aber der Wert verschiebt sich. Weg von starren Tools, hin zu flexiblen Systemen, die genau auf den eigenen Kontext angepasst sind. Wir sehen bereits heutzutage, dass Unternehmen wie Mercedes 40% ihrer SAP-Instanzen k&#252;rzen (<a href="https://x.com/amir/status/2051323029511352518" target="_blank" rel="noopener noreferrer">https://x.com/amir/status/2051323029511352518</a>), um auf eigene, personalisierte Systeme umzusteigen.</p>
+<p>Auch die Vorstellung, dass nur klassische Wissensarbeiter betroffen sind, halte ich f&#252;r falsch. Sobald humanoide Roboter besser, g&#252;nstiger und zuverl&#228;ssiger werden, wird KI auch sehr viel st&#228;rker in physische Arbeit hineinwirken. Vielleicht nicht morgen und vielleicht nicht &#252;berall gleichzeitig, aber die Richtung ist meiner Meinung nach eindeutig.</p>
+<p>Das bedeutet nicht, dass man in Panik verfallen muss. Aber es bedeutet, dass man sich jetzt damit besch&#228;ftigen sollte. Nicht oberfl&#228;chlich, nicht nur mit ein paar ChatGPT-Fragen, sondern ernsthaft. Man sollte verstehen, wie diese Systeme funktionieren, wo ihre Grenzen liegen, wie man sie in echte Workflows integriert und wie man mit ihnen Dinge baut.</p>
+<p>KI ist f&#252;r mich vergleichbar mit der industriellen Revolution, nur mit einem deutlich h&#246;heren Tempo. Es wird nicht ein ganzes Jahrhundert dauern, sondern nur (wenn &#252;berhaupt) wenige Jahrzehnte. Eine steile These, die ich diesbez&#252;glich habe (mal schauen, wie es in ein paar Jahren aussieht): Die KI wird fr&#252;her oder sp&#228;ter beginnen, intelligenter zu werden, als es uns Menschen m&#246;glich ist. Sie wird Erfindungen machen, die Probleme, wie wir sie als Menschheit derzeit haben, l&#246;sen k&#246;nnten. Probleme wie die Umweltbelastung und fehlende Rechenkapazit&#228;ten f&#252;r das Training und Nutzen von KI-Modellen werden vermutlich von KI selbst angegangen werden. Der Klimawandel, die Bev&#246;lkerung anderer Planeten und so weiter. Auf all diese Themen werden wir vermutlich einen neuen Blickwinkel erhalten.</p>
+<p>Ob dies eine gute Zukunft ist oder ob wir tats&#228;chlich in einer Dystopie enden werden, das m&#246;chte ich nicht beurteilen.</p>
+<h4 id="kommen-wir-wieder-auf-sam-altman-zu-sprechen">Kommen wir wieder auf Sam Altman zu sprechen</h4>
+<p>Sam Altman hat in dem Zitat etwas erw&#228;hnt, was man auf jeden Fall beachten sollte. Er spricht davon, dass Studenten <strong>mit einem Abschluss</strong> all das bewirken k&#246;nnen. Er spricht nicht davon, dass jede x-beliebige Person das k&#246;nnte. Das sollte man meiner Meinung nach als Metapher daf&#252;r nehmen, dass es weiterhin Sinn macht, etwas zu lernen und Kompetenzen aufzubauen. Es ist nicht m&#246;glich, KI profitabel und produktiv zu nutzen, ohne ein Themengebiet zu haben, bei dem man wei&#223;, wie man sie dort einsetzen kann. Technisches Know-how ist deshalb meiner Meinung nach immer noch sehr wichtig, und vor allem ist es wichtig, sich m&#246;glichst breit aufzustellen. Denn eines steht fest: Die M&#246;glichkeiten werden immer mehr, und die Tools werden immer besser. Wie zu Zeiten, als das Internet neu kam, Computer neu kamen oder Industriefabriken gebaut wurden, ist es wichtig zu versuchen, hier ganz vorne mitzuspielen und nicht den Anschluss zu verlieren. 95% der Bev&#246;lkerung hat den Anschluss derzeit verloren.</p>
+<p>Die entscheidende Frage ist nicht mehr, ob KI wichtig wird. Die entscheidende Frage ist, ob man sie benutzt wie eine etwas bessere Suchmaschine oder ob man lernt, mit ihr echte Systeme, Produkte und F&#228;higkeiten aufzubauen.</p></article></div></main><script>(()=>{const mq=window.matchMedia("(max-width: 900px)");const sync=()=>document.querySelectorAll(".mobile-nav").forEach(nav=>{if(mq.matches){nav.removeAttribute("open");}else{nav.setAttribute("open","");}});sync();mq.addEventListener?.("change",sync);})();</script></body></html>
