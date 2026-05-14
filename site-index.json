@@ -12,6 +12,18 @@
     "html": "Licht/Nostera.html"
   },
   {
+    "source": "Meine Gedanken/Meine Gedanken.md",
+    "html": "Meine Gedanken/Meine Gedanken.html"
+  },
+  {
+    "source": "Meine Gedanken/zu aktuellen Entwicklungen der KI.md",
+    "html": "Meine Gedanken/zu aktuellen Entwicklungen der KI.html"
+  },
+  {
+    "source": "Mathematik/Einführung.md",
+    "html": "Mathematik/Einführung.html"
+  },
+  {
     "source": "Obsidian/Meine Plugins.md",
     "html": "Obsidian/Meine Plugins.html"
   },
@@ -62,13 +74,5 @@
   {
     "source": "Youtube Quellen/Wie können wir Fokus erreichen.md",
     "html": "Youtube Quellen/Wie können wir Fokus erreichen.html"
-  },
-  {
-    "source": "Mathematik/Einführung.md",
-    "html": "Mathematik/Einführung.html"
-  },
-  {
-    "source": "Meine Gedanken/zu aktuellen Entwicklungen der KI.md",
-    "html": "Meine Gedanken/zu aktuellen Entwicklungen der KI.html"
   }
 ]
