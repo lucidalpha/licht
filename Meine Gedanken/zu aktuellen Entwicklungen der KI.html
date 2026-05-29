@@ -431,7 +431,7 @@ th {
 }
 
 .site-shell { display: grid; gap: 28px; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); }
-.site-nav { border-right: 1px solid var(--border); font-family: var(--font-ui); font-size: 0.92rem; padding-right: 22px; }
+.site-nav { align-self: start; border-right: 1px solid var(--border); font-family: var(--font-ui); font-size: 0.92rem; padding-right: 22px; position: sticky; top: var(--site-nav-stick-top, 42px); }
 .site-nav h2 { font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 12px; text-transform: uppercase; }
 .site-nav a { display: block; line-height: 1.35; margin: 0 0 8px; text-decoration: none; }
 .site-nav a:hover { text-decoration: underline; }
@@ -566,6 +566,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 		margin: 0 0 24px;
 		order: 1;
 		padding: 0;
+		position: static;
+		top: auto;
 	}
 	.content {
 		order: 2;
@@ -700,4 +702,4 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <p>Ob dies eine gute Zukunft ist oder ob wir tats&#228;chlich in einer Dystopie enden werden, das m&#246;chte ich nicht beurteilen.</p>
 <h4 id="kommen-wir-wieder-auf-sam-altman-zu-sprechen">Kommen wir wieder auf Sam Altman zu sprechen</h4>
 <p>Sam Altman hat in dem Zitat etwas erw&#228;hnt, was man auf jeden Fall beachten sollte. Er spricht davon, dass Studenten <strong>mit einem Abschluss</strong> all das bewirken k&#246;nnen. Er spricht nicht davon, dass jede x-beliebige Person das k&#246;nnte. Das sollte man meiner Meinung nach als Metapher daf&#252;r nehmen, dass es weiterhin Sinn macht, etwas zu lernen und Kompetenzen aufzubauen. Es ist nicht m&#246;glich, KI profitabel und produktiv zu nutzen, ohne ein Themengebiet zu haben, bei dem man wei&#223;, wie man sie dort einsetzen kann. Technisches Know-how ist deshalb meiner Meinung nach immer noch sehr wichtig, und vor allem ist es wichtig, sich m&#246;glichst breit aufzustellen. Denn eines steht fest: Die M&#246;glichkeiten werden immer mehr, und die Tools werden immer besser. Wie zu Zeiten, als das Internet neu kam, Computer neu kamen oder Industriefabriken gebaut wurden, ist es wichtig zu versuchen, hier ganz vorne mitzuspielen und nicht den Anschluss zu verlieren. 95% der Bev&#246;lkerung hat den Anschluss derzeit verloren.</p>
-<p>Die entscheidende Frage ist nicht mehr, ob KI wichtig wird. Die entscheidende Frage ist, ob man sie benutzt wie eine etwas bessere Suchmaschine oder ob man lernt, mit ihr echte Systeme, Produkte und F&#228;higkeiten aufzubauen.</p></article></div></main><script>(()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));})();</script></body></html>
+<p>Die entscheidende Frage ist nicht mehr, ob KI wichtig wird. Die entscheidende Frage ist, ob man sie benutzt wie eine etwas bessere Suchmaschine oder ob man lernt, mit ihr echte Systeme, Produkte und F&#228;higkeiten aufzubauen.</p></article></div></main><script>(()=>{const sync=()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));document.querySelectorAll(".site-nav").forEach(nav=>{if(window.matchMedia("(max-width: 900px)").matches){nav.style.removeProperty("--site-nav-stick-top");return;}const margin=24;const preferredTop=42;const navHeight=nav.getBoundingClientRect().height;const stickyTop=Math.min(preferredTop,window.innerHeight-navHeight-margin);nav.style.setProperty("--site-nav-stick-top",`${Math.round(stickyTop)}px`);});};sync();requestAnimationFrame(sync);window.addEventListener("resize",sync,{passive:true});window.addEventListener("load",sync,{once:true});document.querySelectorAll(".site-nav details").forEach(detail=>detail.addEventListener("toggle",sync));})();</script></body></html>

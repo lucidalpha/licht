@@ -431,7 +431,7 @@ th {
 }
 
 .site-shell { display: grid; gap: 28px; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); }
-.site-nav { border-right: 1px solid var(--border); font-family: var(--font-ui); font-size: 0.92rem; padding-right: 22px; }
+.site-nav { align-self: start; border-right: 1px solid var(--border); font-family: var(--font-ui); font-size: 0.92rem; padding-right: 22px; position: sticky; top: var(--site-nav-stick-top, 42px); }
 .site-nav h2 { font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.08em; margin-bottom: 12px; text-transform: uppercase; }
 .site-nav a { display: block; line-height: 1.35; margin: 0 0 8px; text-decoration: none; }
 .site-nav a:hover { text-decoration: underline; }
@@ -566,6 +566,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 		margin: 0 0 24px;
 		order: 1;
 		padding: 0;
+		position: static;
+		top: auto;
 	}
 	.content {
 		order: 2;
@@ -659,4 +661,4 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <li><a href="https://media0.faz.net/image/w1240/6ebd1cee106d/w6144h4389x0y0/202604/43601.0.1942584652/elon-musk-2025-beim-besuch.webp" target="_blank" rel="noopener noreferrer">Elon Musk</a></li>
 <li><a href="https://cdn1.edgedatg.com/aws/v2/abc/SharkTank/person/942357/52b3a71945b7215c70991783daf27b81/1600x640-Q90_52b3a71945b7215c70991783daf27b81.jpg" target="_blank" rel="noopener noreferrer">Mark Cuban</a></li>
 <li><a href="https://images.bild.de/6996d182e29e5d6f1421eb58/8b52c46e9fb58778b17851a19f0faa3e,9d0d2287?w=992" target="_blank" rel="noopener noreferrer">Bill Gates</a></li>
-</ul></article></div></main><script>(()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));})();</script></body></html>
+</ul></article></div></main><script>(()=>{const sync=()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));document.querySelectorAll(".site-nav").forEach(nav=>{if(window.matchMedia("(max-width: 900px)").matches){nav.style.removeProperty("--site-nav-stick-top");return;}const margin=24;const preferredTop=42;const navHeight=nav.getBoundingClientRect().height;const stickyTop=Math.min(preferredTop,window.innerHeight-navHeight-margin);nav.style.setProperty("--site-nav-stick-top",`${Math.round(stickyTop)}px`);});};sync();requestAnimationFrame(sync);window.addEventListener("resize",sync,{passive:true});window.addEventListener("load",sync,{once:true});document.querySelectorAll(".site-nav details").forEach(detail=>detail.addEventListener("toggle",sync));})();</script></body></html>
