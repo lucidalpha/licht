@@ -20,11 +20,16 @@
 			--blue: #00517b;
 			--radius-button: 14px;
 			--page: min(100% - 32px, 1320px);
-			--sidebar-width: 250px;
-			--sidebar-offset: 0px;
 			--font-body: "Arvo", Georgia, serif;
 			--font-accent: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
 			--font-sub: "Rubik", system-ui, sans-serif;
+			--font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+			--font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+			--sidebar-bg: #f7f7f4;
+			--sidebar-text: #151515;
+			--sidebar-muted: #6f6f69;
+			--sidebar-border: #d9d9d2;
+			--radius: 7px;
 		}
 
 		* {
@@ -56,94 +61,88 @@
 		}
 
 		.site-layout {
+			display: grid;
+			gap: 28px;
+			grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
 			min-height: 100vh;
 		}
 
-		.site-sidebar {
-			align-self: start;
-			background: #f7f7f4;
-			border-right: 1px solid #d9d9d2;
-			color: #151515;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-			font-size: 0.88rem;
-			height: 100vh;
-			left: 0;
-			overflow: hidden;
-			padding: 30px 18px 28px 30px;
-			position: fixed;
-			top: 0;
-			width: var(--sidebar-width);
-			z-index: 30;
+		.site-nav {
+			background: var(--sidebar-bg);
+			border-right: 1px solid var(--sidebar-border);
+			color: var(--sidebar-text);
+			font-family: var(--font-ui);
+			font-size: 0.92rem;
+			padding: 42px 22px 56px 42px;
 		}
 
-		.sidebar-details > summary {
+		.mobile-nav {
+			display: block;
+		}
+
+		.mobile-nav > summary {
 			display: none;
 		}
 
-		.sidebar-details {
-			transform: translateY(var(--sidebar-offset));
-		}
-
-		.sidebar-body {
+		.site-nav-body {
 			display: block;
 		}
 
-		.site-sidebar a {
+		.site-nav a {
 			display: block;
-			line-height: 1.28;
-			margin: 0 0 6px;
+			line-height: 1.35;
+			margin: 0 0 8px;
 			text-decoration: none;
 		}
 
-		.site-sidebar a:hover {
+		.site-nav a:hover {
 			text-decoration: underline;
 		}
 
-		.site-sidebar details {
+		.site-nav details {
 			background: transparent;
 			border: 0;
 			color: inherit;
-			margin: 8px 0 0;
+			margin: 10px 0 0;
 			padding: 0;
 		}
 
-		.site-sidebar summary {
-			color: #6f6f69;
+		.site-nav summary {
+			color: var(--sidebar-muted);
 			cursor: pointer;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-			font-size: 0.72rem;
+			font-family: var(--font-ui);
+			font-size: 0.78rem;
 			font-weight: 700;
 			letter-spacing: 0.05em;
 			list-style: none;
-			margin: 11px 0 5px;
+			margin: 14px 0 7px;
 			text-transform: uppercase;
 		}
 
-		.site-sidebar summary::-webkit-details-marker {
+		.site-nav summary::-webkit-details-marker {
 			display: none;
 		}
 
-		.site-sidebar summary::before {
+		.site-nav summary::before {
 			content: "+";
 			display: inline-block;
-			font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-			font-size: 0.72rem;
-			margin-right: 6px;
-			width: 9px;
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			margin-right: 7px;
+			width: 10px;
 		}
 
-		.site-sidebar details[open] summary::before {
+		.site-nav details[open] summary::before {
 			content: "-";
 		}
 
-		.nav-child {
-			border-left: 1px solid #d9d9d2;
-			margin-left: 4px;
-			padding-left: 10px;
+		.site-nav .nav-child {
+			border-left: 1px solid var(--sidebar-border);
+			margin-left: 5px;
+			padding-left: 12px;
 		}
 
 		.nostera-document {
-			margin-left: var(--sidebar-width);
 			min-width: 0;
 			position: relative;
 		}
@@ -506,33 +505,30 @@
 
 		@media (max-width: 900px) {
 			.site-layout {
-				display: block;
+				display: flex;
+				flex-direction: column;
+				gap: 0;
 			}
 
-			.site-sidebar {
-				border-bottom: 1px solid #d9d9d2;
-				border-right: 0;
-				height: auto;
-				overflow: visible;
+			.site-nav {
+				border: 1px solid var(--sidebar-border);
+				border-radius: var(--radius);
+				margin: 0 0 24px;
+				order: 1;
 				padding: 0;
-				position: relative;
-				width: auto;
-			}
-
-			.sidebar-details {
-				transform: none;
 			}
 
 			.nostera-document {
-				margin-left: 0;
+				order: 2;
 			}
 
-			.sidebar-details > summary {
+			.mobile-nav > summary {
 				align-items: center;
-				color: #151515;
+				color: var(--sidebar-text);
 				display: flex;
+				font-family: var(--font-ui);
 				font-size: 0.86rem;
-				font-weight: 800;
+				font-weight: 700;
 				justify-content: space-between;
 				letter-spacing: 0.04em;
 				margin: 0;
@@ -540,11 +536,16 @@
 				text-transform: uppercase;
 			}
 
-			.sidebar-details > summary::before {
-				content: none;
+			.mobile-nav > summary::-webkit-details-marker {
+				display: none;
 			}
 
-			.sidebar-details > summary::after {
+			.mobile-nav > summary::before {
+				content: none;
+				display: none;
+			}
+
+			.mobile-nav > summary::after {
 				border-color: currentColor;
 				border-style: solid;
 				border-width: 0 1.5px 1.5px 0;
@@ -555,9 +556,13 @@
 				width: 8px;
 			}
 
-			.sidebar-body {
-				border-top: 1px solid #d9d9d2;
-				padding: 14px 16px 18px;
+			.mobile-nav[open] > summary::after {
+				transform: rotate(-135deg);
+			}
+
+			.site-nav-body {
+				border-top: 1px solid var(--sidebar-border);
+				padding: 12px 14px 14px;
 			}
 
 			.header {
@@ -681,59 +686,65 @@
 				padding: 18px 16px;
 			}
 		}
+
+		@media (min-width: 901px) {
+			.mobile-nav:not([open]) > .site-nav-body {
+				display: block !important;
+			}
+		}
 	</style>
 </head>
 <body>
 	<div class="site-layout">
-		<aside class="site-sidebar" aria-label="Seitennavigation">
-			<details class="sidebar-details" open>
+		<nav class="site-nav" aria-label="Seitennavigation">
+			<details class="mobile-nav" open>
 				<summary>Inhalte</summary>
-				<div class="sidebar-body">
-					<a href="../index.html">Startseite</a>
-					<details open>
+				<div class="site-nav-body">
+					<a class="nav-link" href="../index.html">Startseite</a>
+					<details class="nav-folder" open>
 						<summary>Licht</summary>
-						<a class="nav-child" href="../Licht/Buchempfehlungen.html">Buchempfehlungen</a>
-						<a class="nav-child" href="../Licht/Nostera.html">Nostera</a>
+						<a class="nav-link nav-child" href="../Licht/Buchempfehlungen.html">Buchempfehlungen</a>
+						<a class="nav-link nav-child" href="../Licht/Nostera.html">Nostera</a>
 					</details>
-					<details open>
+					<details class="nav-folder" open>
 						<summary>Meine Gedanken</summary>
-						<a class="nav-child" href="../Meine Gedanken/Übersicht.html">Übersicht</a>
-						<a class="nav-child" href="../Meine Gedanken/zu aktuellen Entwicklungen der KI.html">zu aktuellen Entwicklungen der KI</a>
+						<a class="nav-link nav-child" href="../Meine Gedanken/Übersicht.html">Übersicht</a>
+						<a class="nav-link nav-child" href="../Meine Gedanken/zu aktuellen Entwicklungen der KI.html">zu aktuellen Entwicklungen der KI</a>
 					</details>
-					<details open>
+					<details class="nav-folder" open>
 						<summary>Mathematik</summary>
-						<a class="nav-child" href="../Mathematik/Einführung.html">Einführung</a>
+						<a class="nav-link nav-child" href="../Mathematik/Einführung.html">Einführung</a>
 					</details>
-					<details open>
+					<details class="nav-folder" open>
 						<summary>Obsidian</summary>
-						<a class="nav-child" href="../Obsidian/Meine Plugins.html">Meine Plugins</a>
-						<a class="nav-child" href="../Obsidian/Obsidian.html">Obsidian</a>
+						<a class="nav-link nav-child" href="../Obsidian/Meine Plugins.html">Meine Plugins</a>
+						<a class="nav-link nav-child" href="../Obsidian/Obsidian.html">Obsidian</a>
 					</details>
-					<details open>
+					<details class="nav-folder" open>
 						<summary>Trading</summary>
-						<a class="nav-child" href="../Trading/Trading.html">Trading</a>
-						<a class="nav-child" href="../Trading/Tradingview Indikatoren.html">Tradingview Indikatoren</a>
+						<a class="nav-link nav-child" href="../Trading/Trading.html">Trading</a>
+						<a class="nav-link nav-child" href="../Trading/Tradingview Indikatoren.html">Tradingview Indikatoren</a>
 					</details>
-					<details open>
+					<details class="nav-folder" open>
 						<summary>Podcasts</summary>
-						<a class="nav-child" href="../Podcasts/Der Ursprung der Nutztiere.html">Der Ursprung der Nutztiere</a>
-						<a class="nav-child" href="../Podcasts/Wie entstand unser Gemüse.html">Wie entstand unser Gemüse</a>
+						<a class="nav-link nav-child" href="../Podcasts/Der Ursprung der Nutztiere.html">Der Ursprung der Nutztiere</a>
+						<a class="nav-link nav-child" href="../Podcasts/Wie entstand unser Gemüse.html">Wie entstand unser Gemüse</a>
 					</details>
-					<details open>
+					<details class="nav-folder" open>
 						<summary>Youtube Quellen</summary>
-						<a class="nav-child" href="../Youtube Quellen/Der Mann, der das eine Millionen Dollar Problem löste.html">Der Mann, der das eine Millionen Dollar Problem löste</a>
-						<a class="nav-child" href="../Youtube Quellen/Die Macht des Luziden Träumens.html">Die Macht des Luziden Träumens</a>
-						<a class="nav-child" href="../Youtube Quellen/Die verschiedenen Gebiete der Mathematik.html">Die verschiedenen Gebiete der Mathematik</a>
-						<a class="nav-child" href="../Youtube Quellen/Meine Meinung zum Remarkable Paper Pro.html">Meine Meinung zum Remarkable Paper Pro</a>
-						<a class="nav-child" href="../Youtube Quellen/Was macht Lesen mit uns.html">Was macht Lesen mit uns</a>
-						<a class="nav-child" href="../Youtube Quellen/Wer war Ramanujan.html">Wer war Ramanujan</a>
-						<a class="nav-child" href="../Youtube Quellen/Wie dachte Richard Feynman.html">Wie dachte Richard Feynman</a>
-						<a class="nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
-						<a class="nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Der Mann, der das eine Millionen Dollar Problem löste.html">Der Mann, der das eine Millionen Dollar Problem löste</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Die Macht des Luziden Träumens.html">Die Macht des Luziden Träumens</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Die verschiedenen Gebiete der Mathematik.html">Die verschiedenen Gebiete der Mathematik</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Meine Meinung zum Remarkable Paper Pro.html">Meine Meinung zum Remarkable Paper Pro</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Was macht Lesen mit uns.html">Was macht Lesen mit uns</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Wer war Ramanujan.html">Wer war Ramanujan</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Wie dachte Richard Feynman.html">Wie dachte Richard Feynman</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Wie denkt Terence Tao.html">Wie denkt Terence Tao</a>
+						<a class="nav-link nav-child" href="../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 					</details>
 				</div>
 			</details>
-		</aside>
+		</nav>
 		<div class="nostera-document">
 			<header class="header" aria-label="Nostera Kopfbereich">
 				<a class="brand" href="#home">Nostera</a>
@@ -856,36 +867,16 @@
 	</div>
 	<script>
 		(() => {
-			const sidebar = document.querySelector(".site-sidebar");
-			const sidebarDetails = document.querySelector(".sidebar-details");
-			if (!sidebar) return;
-			const mobileQuery = window.matchMedia("(max-width: 900px)");
-
-			const updateSidebarOffset = () => {
-				if (mobileQuery.matches) {
-					document.documentElement.style.setProperty("--sidebar-offset", "0px");
-					return;
-				}
-
-				const maxOffset = Math.max(0, sidebar.scrollHeight - window.innerHeight);
-				const offset = Math.min(window.scrollY, maxOffset);
-				document.documentElement.style.setProperty("--sidebar-offset", `${-Math.round(offset)}px`);
-			};
-
-			const syncSidebarMode = () => {
-				if (mobileQuery.matches) {
-					sidebarDetails?.removeAttribute("open");
+			const mq = window.matchMedia("(max-width: 900px)");
+			const sync = () => document.querySelectorAll(".mobile-nav").forEach(nav => {
+				if (mq.matches) {
+					nav.removeAttribute("open");
 				} else {
-					sidebarDetails?.setAttribute("open", "");
+					nav.setAttribute("open", "");
 				}
-				updateSidebarOffset();
-			};
-
-			syncSidebarMode();
-			window.addEventListener("scroll", updateSidebarOffset, { passive: true });
-			window.addEventListener("resize", updateSidebarOffset);
-			window.addEventListener("load", syncSidebarMode);
-			mobileQuery.addEventListener?.("change", syncSidebarMode);
+			});
+			sync();
+			mq.addEventListener?.("change", sync);
 		})();
 	</script>
 </body>
