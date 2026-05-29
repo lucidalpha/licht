@@ -865,19 +865,6 @@
 
 		</div>
 	</div>
-	<script>
-		(() => {
-			const mq = window.matchMedia("(max-width: 900px)");
-			const sync = () => document.querySelectorAll(".mobile-nav").forEach(nav => {
-				if (mq.matches) {
-					nav.removeAttribute("open");
-				} else {
-					nav.setAttribute("open", "");
-				}
-			});
-			sync();
-			mq.addEventListener?.("change", sync);
-		})();
-	</script>
+	<script>(()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));})();</script>
 </body>
 </html>
