@@ -41,7 +41,7 @@
 		}
 
 		body {
-			background: var(--background);
+			background: var(--sidebar-bg);
 			color: var(--text);
 			font-family: var(--font-body);
 			font-size: 14px;
@@ -61,6 +61,7 @@
 		}
 
 		.site-layout {
+			background: var(--sidebar-bg);
 			display: grid;
 			gap: 0;
 			grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
@@ -77,6 +78,7 @@
 			padding: 42px 22px 56px 42px;
 			position: sticky;
 			top: var(--site-nav-stick-top, 42px);
+			z-index: 91;
 		}
 
 		.mobile-nav {
@@ -146,6 +148,7 @@
 		}
 
 		.nostera-document {
+			background: var(--background);
 			min-width: 0;
 			position: relative;
 		}
@@ -508,6 +511,7 @@
 
 		@media (max-width: 900px) {
 			.site-layout {
+				background: var(--sidebar-bg);
 				display: flex;
 				flex-direction: column;
 				gap: 0;
@@ -693,6 +697,10 @@
 		}
 
 		@media (min-width: 901px) {
+			.site-layout {
+				position: relative;
+			}
+
 			.mobile-nav:not([open]) > .site-nav-body {
 				display: block !important;
 			}
