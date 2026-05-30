@@ -509,6 +509,87 @@
 			max-width: 780px;
 		}
 
+		.nostera-footer {
+			background: var(--black);
+			color: var(--white);
+			padding: clamp(46px, 7vw, 76px) clamp(20px, 5vw, 76px);
+		}
+
+		.footer-inner {
+			align-items: start;
+			display: grid;
+			gap: clamp(28px, 6vw, 72px);
+			grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr);
+			margin: 0 auto;
+			max-width: var(--page);
+		}
+
+		.footer-kicker {
+			font-family: var(--font-ui);
+			font-size: 0.78rem;
+			font-weight: 800;
+			letter-spacing: 0.12em;
+			margin-bottom: 14px;
+			text-transform: uppercase;
+		}
+
+		.nostera-footer h2 {
+			font-family: var(--font-accent);
+			font-size: clamp(2.7rem, 6vw, 5.9rem);
+			font-weight: 800;
+			letter-spacing: 0;
+			line-height: 0.95;
+			margin: 0;
+			max-width: 620px;
+		}
+
+		.nostera-footer p {
+			color: rgba(255, 255, 255, 0.76);
+			font-size: 1rem;
+			margin: 22px 0 0;
+			max-width: 580px;
+		}
+
+		.footer-links {
+			display: grid;
+			gap: 0;
+		}
+
+		.footer-link {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+			display: grid;
+			gap: 4px;
+			padding: 14px 0;
+			text-decoration: none;
+		}
+
+		.footer-link:first-child {
+			border-top: 1px solid rgba(255, 255, 255, 0.18);
+		}
+
+		.footer-link span {
+			color: rgba(255, 255, 255, 0.58);
+			font-family: var(--font-ui);
+			font-size: 0.75rem;
+			font-weight: 800;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		.footer-link strong {
+			color: var(--white);
+			font-family: var(--font-body);
+			font-size: 1.02rem;
+			font-weight: 700;
+			line-height: 1.25;
+			overflow-wrap: anywhere;
+		}
+
+		.footer-link:hover strong {
+			text-decoration: underline;
+			text-underline-offset: 3px;
+		}
+
 		@media (max-width: 900px) {
 			.site-layout {
 				background: var(--sidebar-bg);
@@ -694,6 +775,10 @@
 			.faq-section details {
 				padding: 18px 16px;
 			}
+
+			.footer-inner {
+				grid-template-columns: 1fr;
+			}
 		}
 
 		@media (min-width: 901px) {
@@ -873,6 +958,42 @@
 				</div>
 			</div>
 		</section>
+
+		<footer class="nostera-footer" id="kontakt" aria-label="Kontakt und Social Media">
+			<div class="footer-inner">
+				<div>
+					<div class="footer-kicker">Kontakt</div>
+					<h2>Bleib in Verbindung.</h2>
+					<p>Bei Fragen zu Nostera, Bestellungen oder Kooperationen erreichst du mich per Mail oder über meine Social-Media-Kanäle.</p>
+				</div>
+				<div class="footer-links">
+					<a class="footer-link" href="mailto:awincommerce@gmail.com">
+						<span>E-Mail</span>
+						<strong>awincommerce@gmail.com</strong>
+					</a>
+					<a class="footer-link" href="https://www.youtube.com/@anton0win" target="_blank" rel="noopener noreferrer">
+						<span>YouTube</span>
+						<strong>anton0win</strong>
+					</a>
+					<a class="footer-link" href="https://www.tiktok.com/@awintrading" target="_blank" rel="noopener noreferrer">
+						<span>TikTok</span>
+						<strong>awintrading</strong>
+					</a>
+					<a class="footer-link" href="https://www.tiktok.com/@anton0win?lang=de-DE" target="_blank" rel="noopener noreferrer">
+						<span>TikTok</span>
+						<strong>anton0win</strong>
+					</a>
+					<a class="footer-link" href="https://www.instagram.com/anton0win/" target="_blank" rel="noopener noreferrer">
+						<span>Instagram</span>
+						<strong>anton0win</strong>
+					</a>
+					<a class="footer-link" href="https://x.com/DerMittlereWeg" target="_blank" rel="noopener noreferrer">
+						<span>X</span>
+						<strong>DerMittlereWeg</strong>
+					</a>
+				</div>
+			</div>
+		</footer>
 	</main>
 
 		</div>
