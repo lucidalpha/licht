@@ -5,7 +5,7 @@ import json
 VAULT_ROOT = "X:/Licht"
 PODCASTS_MD_DIR = "X:/Licht/7 - Social Media/Youtube/AI Podcasts/Interessante Themen"
 PUBLISH_DIR = "X:/Licht/Publish"
-PUBLISH_PODCASTS_DIR = "X:/Licht/Publish/Podcasts"
+PUBLISH_PODCASTS_DIR = "X:/Licht/Publish/Youtube Quellen/Podcast Quellen"
 
 EXCEPTIONS = {
     "Wie wir unsere Nutztiere domestizierten - Podcast-Erklärung.md": "Der Ursprung der Nutztiere.html"
@@ -96,7 +96,7 @@ def get_html_filename(md_filename):
     return name.strip() + ".html"
 
 def get_skeletons(publish_dir):
-    ref_path = os.path.join(publish_dir, "Podcasts", "Der Ursprung der Nutztiere.html")
+    ref_path = os.path.join(publish_dir, "Youtube Quellen", "Podcast Quellen", "Der Ursprung der Nutztiere.html")
     with open(ref_path, 'r', encoding='utf-8') as f:
         html = f.read()
     
@@ -107,6 +107,10 @@ def get_skeletons(publish_dir):
     # Split using the article end tag
     parts_after = html.split('</article>')
     footer_skeleton = parts_after[1]
+    
+    # Normalisiere assets-Pfade im Skelett (entferne relative Präfixe)
+    header_skeleton = re.sub(r'(?:\.\./)+assets/', 'assets/', header_skeleton)
+    footer_skeleton = re.sub(r'(?:\.\./)+assets/', 'assets/', footer_skeleton)
     
     return header_skeleton, footer_skeleton
 
@@ -124,7 +128,7 @@ def create_podcast_html(filepath, title, thema, sources, header_skeleton, footer
     description = f"Quellen und wissenschaftliche Literatur zur Podcast-Erklärung über {thema}."
     slug = re.sub(r'[^a-z0-9\-]+', '-', title.lower()).strip('-')
     
-    hero_header = f'<header class="hero"><div class="folder-label">Podcasts</div><h1>{title}</h1></header>'
+    hero_header = f'<header class="hero"><div class="folder-label">Podcast Quellen</div><h1>{title}</h1></header>'
     
     article_content = f'''<article class="content"><h1 id="{slug}">{title}</h1>
 <p>{description}</p>
@@ -134,7 +138,13 @@ def create_podcast_html(filepath, title, thema, sources, header_skeleton, footer
 </ul>'''
     
     clean_header = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', header_skeleton, flags=re.IGNORECASE)
-    html_content = f'{clean_header}{hero_header}<div class="site-shell"><nav class="site-nav"></nav>{article_content}</article></div></main>{footer_skeleton}'
+    
+    # Podcasts liegen in Youtube Quellen/Podcast Quellen/ -> depth=2, also prefix='../../'
+    prefix = "../../"
+    clean_header = clean_header.replace('assets/', prefix + 'assets/')
+    clean_footer = footer_skeleton.replace('assets/', prefix + 'assets/')
+    
+    html_content = f'{clean_header}{hero_header}<div class="site-shell"><nav class="site-nav"></nav>{article_content}</article></div></main>{clean_footer}'
     
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(html_content)
@@ -144,8 +154,8 @@ def update_site_index(publish_dir, html_filename):
     with open(index_path, 'r', encoding='utf-8') as f:
         site_index = json.load(f)
     
-    html_val = f"Podcasts/{html_filename}"
-    source_val = f"Podcasts/{html_filename[:-5]}.md"
+    html_val = f"Youtube Quellen/Podcast Quellen/{html_filename}"
+    source_val = f"Youtube Quellen/Podcast Quellen/{html_filename[:-5]}.md"
     
     exists = any(entry.get("html") == html_val for entry in site_index)
     if not exists:
@@ -165,11 +175,19 @@ def scan_site_pages(publish_dir):
         "Mathematik": [],
         "Obsidian": [],
         "Trading": [],
-        "Podcasts": [],
-        "Youtube Quellen": []
+        "Youtube Quellen": [],
+        "Podcast Quellen": []
     }
     
-    folders = ["Licht", "Meine Gedanken", "Mathematik", "Obsidian", "Trading", "Podcasts", "Youtube Quellen"]
+    folders = {
+        "Licht": "Licht",
+        "Meine Gedanken": "Meine Gedanken",
+        "Mathematik": "Mathematik",
+        "Obsidian": "Obsidian",
+        "Trading": "Trading",
+        "Youtube Quellen": "Youtube Quellen",
+        "Youtube Quellen/Podcast Quellen": "Podcast Quellen"
+    }
     
     index_path = os.path.join(publish_dir, "index.html")
     if os.path.exists(index_path):
@@ -179,8 +197,8 @@ def scan_site_pages(publish_dir):
             "rel_dir": ""
         })
         
-    for folder in folders:
-        folder_path = os.path.join(publish_dir, folder)
+    for folder_rel, key in folders.items():
+        folder_path = os.path.join(publish_dir, folder_rel)
         if not os.path.exists(folder_path):
             continue
         for filename in os.listdir(folder_path):
@@ -190,47 +208,67 @@ def scan_site_pages(publish_dir):
                     html_content = f.read()
                 title_match = re.search(r'<title>(.*?)</title>', html_content, re.IGNORECASE)
                 title = title_match.group(1) if title_match else filename[:-5]
-                pages[folder].append({
+                pages[key].append({
                     "title": title,
-                    "path": f"{folder}/{filename}",
-                    "rel_dir": folder
+                    "path": f"{folder_rel}/{filename}",
+                    "rel_dir": folder_rel
                 })
-        pages[folder].sort(key=lambda x: x["title"])
+        pages[key].sort(key=lambda x: x["title"])
         
     return pages
 
-def generate_nav_html(pages, is_subfolder):
-    prefix = "../" if is_subfolder else ""
+def generate_nav_html(pages, depth):
+    prefix = "../" * depth
     
     lines = []
     lines.append(f'<a class="nav-link" href="{prefix}index.html">Startseite</a>')
     
-    folders_order = ["Licht", "Meine Gedanken", "Mathematik", "Obsidian", "Trading", "Podcasts", "Youtube Quellen"]
+    folders_order = ["Licht", "Meine Gedanken", "Mathematik", "Obsidian", "Trading", "Youtube Quellen"]
     for folder in folders_order:
         folder_pages = pages.get(folder, [])
-        if not folder_pages:
-            continue
-        lines.append(f'<details class="nav-folder" open><summary>{folder}</summary>')
-        for page in folder_pages:
-            path = prefix + page["path"]
-            lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
-        lines.append('</details>')
+        if folder == "Youtube Quellen":
+            podcast_pages = pages.get("Podcast Quellen", [])
+            if not folder_pages and not podcast_pages:
+                continue
+            
+            lines.append(f'<details class="nav-folder" open><summary>Youtube Quellen</summary>')
+            for page in folder_pages:
+                path = prefix + page["path"]
+                lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
+            
+            if podcast_pages:
+                lines.append(f'<details class="nav-folder nav-child" open><summary>Podcast Quellen</summary>')
+                for page in podcast_pages:
+                    path = prefix + page["path"]
+                    lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
+                lines.append('</details>')
+            
+            lines.append('</details>')
+        else:
+            if not folder_pages:
+                continue
+            lines.append(f'<details class="nav-folder" open><summary>{folder}</summary>')
+            for page in folder_pages:
+                path = prefix + page["path"]
+                lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
+            lines.append('</details>')
         
     nav_inner = "\n".join(lines)
     return f'<details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">\n{nav_inner}\n</div></details>'
 
 def update_nav_in_all_files(publish_dir, pages):
-    root_nav = '<nav class="site-nav">' + generate_nav_html(pages, is_subfolder=False) + '</nav>'
-    sub_nav = '<nav class="site-nav">' + generate_nav_html(pages, is_subfolder=True) + '</nav>'
-    
     for root, dirs, files in os.walk(publish_dir):
         if ".git" in root or "assets" in root:
             continue
         for file in files:
             if file.endswith(".html"):
                 filepath = os.path.join(root, file)
-                is_sub = (os.path.abspath(root) != os.path.abspath(publish_dir))
-                target_nav = sub_nav if is_sub else root_nav
+                
+                rel_path = os.path.relpath(filepath, publish_dir)
+                parts = rel_path.replace("\\", "/").split("/")
+                depth = len(parts) - 1
+                
+                target_nav = '<nav class="site-nav">' + generate_nav_html(pages, depth) + '</nav>'
                 
                 with open(filepath, 'r', encoding='utf-8') as f:
                     content = f.read()
