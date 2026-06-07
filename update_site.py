@@ -223,35 +223,18 @@ def generate_nav_html(pages, depth):
     lines = []
     lines.append(f'<a class="nav-link" href="{prefix}index.html">Startseite</a>')
     
-    folders_order = ["Licht", "Meine Gedanken", "Mathematik", "Obsidian", "Trading", "Youtube Quellen"]
+    folders_order = ["Licht", "Meine Gedanken", "Mathematik", "Obsidian", "Trading", "Youtube Quellen", "Podcast Quellen"]
     for folder in folders_order:
         folder_pages = pages.get(folder, [])
-        if folder == "Youtube Quellen":
-            podcast_pages = pages.get("Podcast Quellen", [])
-            if not folder_pages and not podcast_pages:
-                continue
+        if not folder_pages:
+            continue
             
-            lines.append(f'<details class="nav-folder" open><summary>Youtube Quellen</summary>')
-            for page in folder_pages:
-                path = prefix + page["path"]
-                lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
-            
-            if podcast_pages:
-                lines.append(f'<details class="nav-folder nav-child" open><summary>Podcast Quellen</summary>')
-                for page in podcast_pages:
-                    path = prefix + page["path"]
-                    lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
-                lines.append('</details>')
-            
-            lines.append('</details>')
-        else:
-            if not folder_pages:
-                continue
-            lines.append(f'<details class="nav-folder" open><summary>{folder}</summary>')
-            for page in folder_pages:
-                path = prefix + page["path"]
-                lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
-            lines.append('</details>')
+        is_open = "" if folder in ["Youtube Quellen", "Podcast Quellen"] else " open"
+        lines.append(f'<details class="nav-folder"{is_open}><summary>{folder}</summary>')
+        for page in folder_pages:
+            path = prefix + page["path"]
+            lines.append(f'<a class="nav-link nav-child" href="{path}">{page["title"]}</a>')
+        lines.append('</details>')
         
     nav_inner = "\n".join(lines)
     return f'<details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">\n{nav_inner}\n</div></details>'
