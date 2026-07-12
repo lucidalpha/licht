@@ -790,7 +790,41 @@
 				display: block !important;
 			}
 		}
-	</style>
+	
+.site-footer {
+	border-top: 1px solid var(--border);
+	margin-top: 30px;
+}
+.site-footer-inner {
+	align-items: center;
+	color: var(--muted);
+	display: flex;
+	flex-wrap: wrap;
+	font-family: var(--font-ui);
+	font-size: 0.85rem;
+	gap: 8px 24px;
+	justify-content: space-between;
+	padding: 20px 42px 30px;
+}
+.site-footer a {
+	color: var(--muted);
+	text-decoration: none;
+}
+.site-footer a:hover {
+	color: var(--text);
+	text-decoration: underline;
+}
+.footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+}
+@media (max-width: 680px) {
+	.site-footer-inner {
+		padding: 18px 18px 26px;
+	}
+}
+</style>
 </head>
 <body>
 	<div class="site-layout">
@@ -990,7 +1024,7 @@
 				</div>
 			</div>
 		</footer>
-	</main>
+	</main><footer class="site-footer"><div class="site-footer-inner"><span class="footer-copy">&copy; 2026 Anton Winter</span><nav class="footer-links"><a href="../Impressum.html">Impressum</a><a href="../Datenschutz.html">Datenschutzerkl&auml;rung</a></nav></div></footer>
 
 		</div>
 	</div>

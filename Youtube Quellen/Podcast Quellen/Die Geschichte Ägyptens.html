@@ -617,6 +617,40 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 		display: block !important;
 	}
 }
+
+.site-footer {
+	border-top: 1px solid var(--border);
+	margin-top: 30px;
+}
+.site-footer-inner {
+	align-items: center;
+	color: var(--muted);
+	display: flex;
+	flex-wrap: wrap;
+	font-family: var(--font-ui);
+	font-size: 0.85rem;
+	gap: 8px 24px;
+	justify-content: space-between;
+	padding: 20px 42px 30px;
+}
+.site-footer a {
+	color: var(--muted);
+	text-decoration: none;
+}
+.site-footer a:hover {
+	color: var(--text);
+	text-decoration: underline;
+}
+.footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+}
+@media (max-width: 680px) {
+	.site-footer-inner {
+		padding: 18px 18px 26px;
+	}
+}
 </style></head><body><main class="page page-wide"><header class="hero"><div class="folder-label">Podcast Quellen</div><h1>Die Geschichte Ägyptens</h1></header><div class="site-shell"><nav class="site-nav"><details class="mobile-nav" open><summary>Inhalte</summary><div class="site-nav-body">
 <a class="nav-link" href="../../index.html">Startseite</a>
 <details class="nav-folder" open><summary>Licht</summary>
@@ -647,26 +681,39 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../../Youtube Quellen/Wie können wir Fokus erreichen.html">Wie können wir Fokus erreichen</a>
 </details>
 <details class="nav-folder"><summary>Podcast Quellen</summary>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte Deutschlands.html">"Die Geschichte Deutschlands: Vom offenen Grenzraum zur Republik"</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie der Mensch begriff, dass die Erde eine kleine Kugel im Universum ist.html">"Wie der Mensch begriff, dass die Erde eine kleine Kugel im Universum ist"</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie sind Staaten entstanden.html">"Wie sind Staaten entstanden"</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Babylon.html">Babylon</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Das Königreich Aksum.html">Das Königreich Aksum</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Das alte Indien.html">Das alte Indien</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Das frühe Japan.html">Das frühe Japan</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Der Tod der Neanderthaler.html">Der Tod der Neanderthaler</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Der mediterrane Lifestyle.html">Der mediterrane Lifestyle</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Deutschland vor der Kulturlandschaft.html">Deutschland vor der Kulturlandschaft</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Amazonen.html">Die Amazonen</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Bibliothek von Alexandria.html">Die Bibliothek von Alexandria</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte Griechenlands.html">Die Geschichte Griechenlands</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte Islands.html">Die Geschichte Islands</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte Roms.html">Die Geschichte Roms</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte der Alpen.html">Die Geschichte der Alpen</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte der Schrift.html">Die Geschichte der Schrift</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte des Flugzeuges.html">Die Geschichte des Flugzeuges</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Geschichte Ägyptens.html">Die Geschichte Ägyptens</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Indianer.html">Die Indianer</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Inka.html">Die Inka</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Menschheitsgeschichte in kompakt.html">Die Menschheitsgeschichte in kompakt</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Seidenstraße.html">Die Seidenstraße</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die Wirkung des Waldes.html">Die geheime Heilkraft der Bäume</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die griechischen Götter.html">Die griechischen Götter</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Die größten Erfindungen der Geschichte.html">Die größten Erfindungen der Geschichte</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Kognitive Evolution des Menschen.html">Die kognitive Krone</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Pergamon.html">Pergamon</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Persien.html">Persien</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Pilz- und Myzelnetzwerke im Wald.html">Pilz- und Myzelnetzwerke im Wald</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Samurai.html">Samurai</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Schach.html">Schach</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Space Race.html">Space Race</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Was Lesen mit unserem Gehirn macht.html">Was Lesen mit unserem Gehirn macht</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Zimmerpflanzen und Luftqualität.html">Was Zimmerpflanzen wirklich mit unserer Luft machen</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Ernährung unserer Vorfahren.html">Was unsere Vorfahren wirklich aßen</a>
@@ -675,6 +722,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie entstand die Demokratie im alten Griechenland.html">Wie entstand die Demokratie im alten Griechenland</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie entstand unser Gemüse.html">Wie entstand unser Gemüse?</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie funktioniert das Internet.html">Wie funktioniert das Internet?</a>
+<a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie leben die Eskimos.html">Wie leben die Eskimos</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Wie liest man ein Buch.html">Wie liest man ein Buch</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Der Ursprung der Nutztiere.html">Wie wir unsere Nutztiere domestizierten</a>
 <a class="nav-link nav-child" href="../../Youtube Quellen/Podcast Quellen/Woher kommt Atlantis.html">Woher kommt Atlantis</a>
@@ -700,4 +748,4 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 <li>Mark Lehner: "The Complete Pyramids". Thames and Hudson, 1997.</li>
 <li>Aidan Dodson und Dyan Hilton: "The Complete Royal Families of Ancient Egypt". Thames and Hudson, 2004.</li>
 <li><a href="https://www.amarnaproject.com/" target="_blank" rel="noopener noreferrer">Egypt Exploration Society: "Amarna Project".</a></li>
-</ul></article></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main><script>(()=>{const sync=()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));document.querySelectorAll(".site-nav").forEach(nav=>{if(window.matchMedia("(max-width: 900px)").matches){nav.style.removeProperty("--site-nav-stick-top");return;}const margin=24;const preferredTop=42;const navHeight=nav.getBoundingClientRect().height;const stickyTop=Math.min(preferredTop,window.innerHeight-navHeight-margin);nav.style.setProperty("--site-nav-stick-top",`${Math.round(stickyTop)}px`);});};sync();requestAnimationFrame(sync);window.addEventListener("resize",sync,{passive:true});window.addEventListener("load",sync,{once:true});document.querySelectorAll(".site-nav details").forEach(detail=>detail.addEventListener("toggle",sync));})();</script></body></html>
+</ul></article></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main></div></main><footer class="site-footer"><div class="site-footer-inner"><span class="footer-copy">&copy; 2026 Anton Winter</span><nav class="footer-links"><a href="../../Impressum.html">Impressum</a><a href="../../Datenschutz.html">Datenschutzerkl&auml;rung</a></nav></div></footer><script>(()=>{const sync=()=>{document.querySelectorAll(".mobile-nav").forEach(nav=>nav.setAttribute("open",""));document.querySelectorAll(".site-nav").forEach(nav=>{if(window.matchMedia("(max-width: 900px)").matches){nav.style.removeProperty("--site-nav-stick-top");return;}const margin=24;const preferredTop=42;const navHeight=nav.getBoundingClientRect().height;const stickyTop=Math.min(preferredTop,window.innerHeight-navHeight-margin);nav.style.setProperty("--site-nav-stick-top",`${Math.round(stickyTop)}px`);});};sync();requestAnimationFrame(sync);window.addEventListener("resize",sync,{passive:true});window.addEventListener("load",sync,{once:true});document.querySelectorAll(".site-nav details").forEach(detail=>detail.addEventListener("toggle",sync));})();</script></body></html>
