@@ -25,7 +25,14 @@
     const wasOpen = panel.classList.contains('is-open');
     activeLink = link;
     links.forEach(item => item.setAttribute('aria-expanded', String(item === link)));
-    panel.setAttribute('aria-label', 'Leerer Bereich für ' + link.textContent);
+    const surface = panel.querySelector('.topic-blank');
+    surface.replaceChildren();
+    if (link.getAttribute('href') === 'social-media.html') {
+      surface.append(document.querySelector('#social-media-content').content.cloneNode(true));
+      panel.setAttribute('aria-label', 'Social Media');
+    } else {
+      panel.setAttribute('aria-label', 'Leerer Bereich für ' + link.textContent);
+    }
     panel.hidden = false;
     panel.inert = false;
     panel.getBoundingClientRect();
