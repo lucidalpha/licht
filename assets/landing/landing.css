@@ -18,7 +18,7 @@ body{min-height:100vh;display:flex;flex-direction:column}body>main{flex:1}a{colo
 .hero-art--tree{width:115%;margin-left:-15%;transform:none}.hero-art--tree img{animation:none;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none}
 @media(max-width:760px){.hero-art--tree{width:min(500px,calc(100% + 44px));margin-left:50%;transform:translateX(-50%)}}
 
-.hero-portrait{grid-column:2;justify-self:end;position:relative;left:0;width:min(420px,90%);margin:28px 0 20px}.hero-portrait img{width:100%;height:auto;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none}
+.hero-portrait{grid-column:1;justify-self:start;position:relative;left:0;width:min(420px,90%);margin:28px 0 20px}.hero-portrait img{width:100%;height:auto;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none}
 @media(max-width:760px){.hero-portrait{grid-column:1;left:0;width:min(380px,100%);margin:38px 0 20px}}
 
 .hero-divider{grid-column:1/-1;width:100%;height:1px;border:0;background:var(--line);margin:24px 0 0}
