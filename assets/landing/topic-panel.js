@@ -3,14 +3,14 @@
   const links = [...document.querySelectorAll('.topic-link')];
   if (!panel || !links.length) return;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  let activeLink;
+  let activeLink = links.find(link => link.getAttribute('aria-expanded') === 'true');
   let revision = 0;
   let fade;
   const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   links.forEach(link => {
     link.setAttribute('aria-controls', panel.id);
-    link.setAttribute('aria-expanded', 'false');
+    link.setAttribute('aria-expanded', String(link === activeLink));
     link.addEventListener('click', event => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();

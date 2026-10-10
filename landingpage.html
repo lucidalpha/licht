@@ -12,7 +12,7 @@
 <link rel="preload" href="assets/fonts/cmunti.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="assets/landing/landing.css?v=20261010-social-profiles">
 <script src="assets/landing/scroll-reveal.js?v=20261010-final" defer></script>
-<script src="assets/landing/topic-panel.js?v=20261010-social" defer></script>
+<script src="assets/landing/topic-panel.js?v=20261010-social-default" defer></script>
 </head>
 <body>
 <header class="site-header"><div class="container header-inner">
@@ -30,14 +30,20 @@
 </section>
 <section class="topics-section container" aria-label="Themenbereiche">
 <nav class="topics-row" aria-label="Bereiche" data-reveal>
-<a class="topic-link" href="gedanken.html">Gedanken</a>
-<a class="topic-link" href="social-media.html">Social Media</a>
-<a class="topic-link" href="mathematik.html">Mathematik</a>
-<a class="topic-link" href="trading.html">Trading</a>
-<a class="topic-link" href="vitalitaet.html">Vitalität</a>
+<a class="topic-link" href="gedanken.html" aria-controls="topic-panel" aria-expanded="false">Gedanken</a>
+<a class="topic-link" href="social-media.html" aria-controls="topic-panel" aria-expanded="true">Social Media</a>
+<a class="topic-link" href="mathematik.html" aria-controls="topic-panel" aria-expanded="false">Mathematik</a>
+<a class="topic-link" href="trading.html" aria-controls="topic-panel" aria-expanded="false">Trading</a>
+<a class="topic-link" href="vitalitaet.html" aria-controls="topic-panel" aria-expanded="false">Vitalität</a>
 </nav>
-<div class="topic-panel" id="topic-panel" role="region" aria-label="Leerer Bereich" hidden inert>
-<div class="topic-panel-inner"><div class="topic-blank"></div></div>
+<div class="topic-panel is-open" id="topic-panel" role="region" aria-label="Social Media">
+<div class="topic-panel-inner"><div class="topic-blank">
+<div class="social-logos" aria-label="X, TikTok und Instagram">
+<div class="social-profile"><img src="assets/landing/x-punktraster-v2.webp" width="1254" height="1254" draggable="false" alt="X – Logo im Navy-Punktrasterstil"><a class="social-profile-link" href="https://x.com/DerMittlereWeg" target="_blank" rel="noopener noreferrer" aria-label="X-Profil @DerMittlereWeg">@DerMittlereWeg</a></div>
+<div class="social-profile"><img src="assets/landing/tiktok-punktraster-v2.webp" width="1254" height="1254" draggable="false" alt="TikTok – Logo im Navy-Punktrasterstil"><a class="social-profile-link" href="https://www.tiktok.com/@antonlogie" target="_blank" rel="noopener noreferrer" aria-label="TikTok-Profil @antonlogie">@antonlogie</a></div>
+<div class="social-profile"><img src="assets/landing/instagram-punktraster-v2.webp" width="1254" height="1254" draggable="false" alt="Instagram – Logo im Navy-Punktrasterstil"><a class="social-profile-link" href="https://www.instagram.com/antonlogie1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram-Profil @antonlogie1">@antonlogie1</a></div>
+</div>
+</div></div>
 </div>
 </section>
 <template id="social-media-content">
