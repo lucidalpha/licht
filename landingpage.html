@@ -10,8 +10,9 @@
 <title>Anton Winter — Das Wichtigste im Leben ist Fokus.</title>
 <link rel="icon" href="assets/landing/sonne-gravur-gold-exakt.png" type="image/png">
 <link rel="preload" href="assets/fonts/cmunti.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="assets/landing/landing.css?v=20261010-scroll">
+<link rel="stylesheet" href="assets/landing/landing.css?v=20261010-topic-panel">
 <script src="assets/landing/scroll-reveal.js?v=20261010-final" defer></script>
+<script src="assets/landing/topic-panel.js?v=20261010-panel" defer></script>
 </head>
 <body>
 <header class="site-header"><div class="container header-inner">
@@ -36,6 +37,12 @@
 <a class="topic-card" href="trading.html" data-reveal><span class="topic-title">Trading</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
 <a class="topic-card" href="vitalitaet.html" data-reveal><span class="topic-title">Vitalität</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
 </nav>
+<section class="topic-panel" id="topic-panel" aria-labelledby="topic-panel-title" hidden inert>
+<div class="topic-panel-inner"><div class="topic-window">
+<div class="topic-panel-header"><h3 id="topic-panel-title" tabindex="-1"></h3><button class="topic-panel-close" type="button" aria-label="Themenfenster schließen"><span aria-hidden="true">×</span></button></div>
+<div class="topic-panel-content"></div>
+</div></div>
+</section>
 </section>
 </main>
 <footer class="site-footer container"><span>© 2026 Anton Winter</span><nav aria-label="Rechtliche Informationen"><a href="Impressum.html">Impressum</a><a href="Datenschutz.html">Datenschutz</a></nav></footer>
