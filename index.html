@@ -10,7 +10,8 @@
 <title>Anton Winter — Das Wichtigste im Leben ist Fokus.</title>
 <link rel="icon" href="assets/landing/sonne-gravur-gold-exakt.png" type="image/png">
 <link rel="preload" href="assets/fonts/cmunti.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="assets/landing/landing.css?v=20261010-portrait-serif">
+<link rel="stylesheet" href="assets/landing/landing.css?v=20261010-scroll">
+<script src="assets/landing/scroll-reveal.js?v=20261010-final" defer></script>
 </head>
 <body>
 <header class="site-header"><div class="container header-inner">
@@ -22,9 +23,19 @@
 <div class="hero-copy"><h1 id="hero-title"><span>Das Wichtigste</span><span>im Leben ist</span><span><em>Fokus.</em></span></h1></div>
 <figure class="hero-art hero-art--tree"><img src="assets/landing/baum-punktraster.webp" width="1536" height="1024" draggable="false" fetchpriority="high" alt="Ein verzweigter Laubbaum aus feinen navyblauen Rasterpunkten mit räumlicher Schattierung."></figure>
 <hr class="hero-divider" aria-hidden="true">
-<figure class="hero-portrait"><img src="assets/landing/portrait-punktraster.webp" width="1073" height="1465" draggable="false" loading="lazy" decoding="async" alt="Porträt einer Person mit Kappe und Poloshirt in feinem navyblauem Punktraster; der Augenbereich ist verdeckt."></figure>
-<div class="portrait-copy"><p>Klarheit im Denken und Klarheit im Handeln ist der Grundstein für alles. Unsere heutige Zeit ist auf das Gegenteil gerichtet.</p></div>
+<figure class="hero-portrait" data-reveal><img src="assets/landing/portrait-punktraster.webp" width="1073" height="1465" draggable="false" loading="lazy" decoding="async" alt="Porträt einer Person mit Kappe und Poloshirt in feinem navyblauem Punktraster; der Augenbereich ist verdeckt."></figure>
+<div class="portrait-copy" data-reveal><p>Klarheit im Denken und Klarheit im Handeln ist der Grundstein für alles. Unsere heutige Zeit ist auf das Gegenteil gerichtet.</p></div>
 </div>
+</section>
+<section class="topics-section container" aria-labelledby="topics-title">
+<h2 id="topics-title" data-reveal>Themen</h2>
+<nav class="topics-grid" aria-label="Themenbereiche">
+<a class="topic-card" href="gedanken.html" data-reveal><span class="topic-title">Gedanken</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+<a class="topic-card" href="social-media.html" data-reveal><span class="topic-title">Social Media</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+<a class="topic-card" href="mathematik.html" data-reveal><span class="topic-title">Mathematik</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+<a class="topic-card" href="trading.html" data-reveal><span class="topic-title">Trading</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+<a class="topic-card" href="vitalitaet.html" data-reveal><span class="topic-title">Vitalität</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+</nav>
 </section>
 </main>
 <footer class="site-footer container"><span>© 2026 Anton Winter</span><nav aria-label="Rechtliche Informationen"><a href="Impressum.html">Impressum</a><a href="Datenschutz.html">Datenschutz</a></nav></footer>
